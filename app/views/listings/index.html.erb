@@ -1,0 +1,153 @@
+<% search_params = params.except(*[:action, :controller]).to_json %>
+<div ng-controller="ListingsCtrl" ng-init="load_search_page('<%= search_params %>')">
+  <div id="search_results">
+    <nav class="navbar navbar-default mb0">
+      	<div class="container">
+        	<div class="row">
+            	<div class="col-sm-6">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Featured</a></li>
+                        <li><a href="#">Newest</a></li>
+                        <li><a href="#">Cheapest</a></li>
+                        <li><a href="#">More</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                	<div class="navbar-right">
+                    	<p class="navbar-text"><ng-pluralize count="results_count" when="{'1': '1 result', 'other': '{} results'}"></ng-pluralize></p>
+                        <a href="" ng-click="toggle_search_results('<%= MAPS_API_KEY %>','<%= search_params %>')" class="navbar-btn btn-link btn navbar-left map-view-btn">Map View</a>
+                        <ul class="pagination navbar-pagination hidden-sm">
+                            <li><a href="">{{current_page}}</a></li>
+                            <li>
+                              <a href="" ng-click="load_search_listings(current_page-1, results_count, '<%= search_params %>')" aria-label="Prev">
+                                <span aria-hidden="true">&lsaquo;</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="" ng-click="load_search_listings(current_page+1, results_count, '<%= search_params %>')" aria-label="Next">
+                                <span aria-hidden="true">&rsaquo;</span>
+                              </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+      	</div>
+    </nav>
+
+    <div class="bg-grey">
+      <div class="container">
+          <div class="row" ng-repeat="group in listings">
+          	<div class="col-md-3 col-sm-6" ng-repeat="listing in group">
+                  <div class="house-item">
+                      <figure><img ng-src="http://zumin.s3.amazonaws.com/listing_photos/{{listing._type}}_{{listing.id}}_0.jpg" onerror="this.onerror=null;this.src='/missing-image.png';"></figure>
+                      <div class="house-caption">
+                          <div class="box-header">
+                              <h4>{{ listing.addr }}, {{ listing.municipality }}, {{ listing.county }}, {{ listing.zip }}</h4>
+                          </div>
+                          <div class="box-body">
+                              <table class="table table-house">
+                              <tbody>
+                                  <tr>
+                                      <th>Price</th>
+                                      <td>${{listing.lp_dol | number}}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>Located at</th>
+                                      <td>{{listing.municipality}} <br>{{listing.addr}}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>MLS®</th>
+                                      <td>{{listing.ml_num}}</td>
+                                  </tr>
+                                  <tr>
+                                      <th>Prop. Type</th>
+                                      <td>{{listing.type_own1_out}}</td>
+                                  </tr>
+                              </tbody>
+                              </table>
+                          </div>
+                          <div class="box-footer">
+                              <a href="/listings/{{listing.id}}" target="_self" class="btn btn-danger btn-block btn-sm">MORE INFORMATION</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <nav class="text-right">
+            <ul class="pagination square-pagination">
+              <li><a href="">{{current_page}}</a></li>
+              <li>
+                <a href="" ng-click="load_search_listings(current_page-1, results_count, '<%= search_params %>')" aria-label="Prev">
+                  <span aria-hidden="true">&lsaquo;</span>
+                </a>
+              </li>
+              <li>
+                <a href="" ng-click="load_search_listings(current_page+1, results_count, '<%= search_params %>')" aria-label="Next">
+                  <span aria-hidden="true">&rsaquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-container" id="map_results" style="display:none;">
+    <div class="progress-overlay col-md-8 col-sm-5" ng-show="map_loading">
+      <div class="progress-container">
+        <div class="progress active grayscale">
+          <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+          </div>
+        </div>
+      </div>
+    </div>
+      <div id="map" style="width:100%;height:100%;position:relative;"></div>
+              <div class="col-md-4 col-sm-7 pull-right" style="position:absolute;top:120px;right:10px;">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <div class="row">
+                          	  <div class="col-sm-6">
+							                 <ng-pluralize count="results_to_show.length" when="{'1': '1 result', 'other': '{} results'}"></ng-pluralize><br/>
+                          	</div>
+                              <div class="col-sm-6">
+                                <a href="" ng-click="toggle_search_results('<%= MAPS_API_KEY %>','<%= search_params %>')" class="pull-right">List View</a>
+                              </div>
+                          </div>
+                    	</div>
+                    	<div class="panel-body">
+                          <div id="house-scroll-map" class="nano">
+                              <div class="nano-content">
+                                <p ng-show="map_results_loading" style="text-align:center;margin-top:100px;"><%= image_tag "orange_loading.gif" %></p>
+                                <div class="house-media" ng-repeat="r_listing in map_results_list"  data-listing-title="{{r_listing.addr}}, {{r_listing.municipality}}" data-lat="{{r_listing.latitude}}" data-long="{{r_listing.longitude}}">
+                                  <div class="media" <% unless user_signed_in? %> ng-class="{ 'blur': r_listing.visibility == 'vow' }"<% end %>>
+                                    <div class="media-left">
+                                      <img ng-src="http://zumin.s3.amazonaws.com/listing_photos/listing_{{r_listing.id}}_0.jpg" onerror="this.onerror=null;this.src='/missing-image.png';">
+                                    </div>
+                                    <div class="media-body">
+                                      <h4><a target="_self" href="/listings/{{r_listing.id}}">{{r_listing.addr}}, {{r_listing.municipality}}</a></h4>
+                                      <p>${{r_listing.lp_dol | number}}<br> <ng-pluralize count="r_listing.br" when="{'1': '1 bed', 'other': '{} beds'}"></ng-pluralize>, <ng-pluralize count="r_listing.bath_tot" when="{'1': '1 bath', 'other': '{} baths'}"></ng-pluralize></p>
+                                    </div>
+                                  </div>
+                                  <% unless user_signed_in? %>
+                                    <div class="overlay" ng-show="r_listing.visibility == 'vow'">
+                                      Sign in to view
+                                    </div>
+                                  <% end %>
+                                </div>
+                          	 </div>
+                          </div>
+                    	</div>
+                    	<div class="panel-footer" ng-show="results_to_show">
+                      	<div class="clearfix">
+                      	<div class="page-info">Page {{map_results_page}} of {{Math.ceil(results_to_show.length/12)}}</div>
+                              <div class="nav-right1 clearfix">
+                                  <a href="" ng-click="prev_map_page()"><span class="fa fa-caret-left"></span></a>
+                                  <a href="" ng-click="next_map_page()"><span class="fa fa-caret-right"></span></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+  </div>
+</div>

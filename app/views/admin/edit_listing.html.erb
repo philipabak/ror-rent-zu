@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Edit Listing - <%= @listing.title %></h1>
+      <%= simple_form_for @listing, url: admin_update_listing_path do |f| %>
+        <%= hidden_field_tag :class_name, @listing._type %>
+        <% @listing.attributes.keys.reject{|a| %w(id latitude longitude created_at updated_at deleted_at fields_to_show).include?(a)}.sort_by{|a| a.downcase}.in_groups_of(3, false) do |group| %>
+          <div class="row">
+            <% group.each do |field| %>
+              <div class="col-md-4">
+                <%= f.input field.to_sym, label: RETS_FIELDS[field] %>
+                <% mark_checked = true if @listing.fields_to_show.present? && JSON.parse(@listing.fields_to_show).include?(field) %>
+                <%= check_box_tag "fields_to_show[]", field, mark_checked %> Show on listing page
+                <hr/>              
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <%= f.submit "Save", class: "btn btn-danger pull-right" %><br/><br/><br/>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div ng-controller="ConversationsCtrl">
+  <h1>Messaging</h1>
+
+  <div ng-show="show_conversations">
+    <b>Conversations</b>
+    <ul id="conversations_list">
+      <li ng-repeat="conversation in conversations">
+        <a href="" ng-click="open_conversation(conversation)">{{conversation.subject}}</a>
+      </li>
+    </ul>
+  </div>
+  <div ng-show="show_single_conversation">
+    <a href="" ng-click="close_conversation()"><< Back to conversations</a><br/>
+    <b>Messages</b>
+    <ul id="messages_list">
+      <li ng-repeat="message in messages">
+        {{message.body}}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<%= form_tag messages_path, remote: true do %>
+  <%= text_area_tag :msg_body %>
+  <%= select_tag :msg_receiver, options_from_collection_for_select(User.all, :id, :name) %>
+  <%= submit_tag "Send Message" %>
+<% end %>
+
+<%= subscribe_to "/messaging_#{current_user.faye_token}" %>
+
+<input type="text" ng-model="newMessage.text">
+
+{{newMessage.text}}

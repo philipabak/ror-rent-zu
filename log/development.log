@@ -1,0 +1,1329 @@
+  [1m[36m (396.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (670.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (16.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to Residential (20150114044231)
+  [1m[35m (370.5ms)[0m  CREATE TABLE `residentials` (`id` int(11) auto_increment PRIMARY KEY, `a_c` varchar(100), `acres` varchar(100), `ad_text` text, `addr` varchar(100), `all_inc` varchar(100), `apt_num` varchar(100), `area` varchar(100), `area_code` varchar(100), `ass_year` int(11), `bath_tot` smallint, `br` tinyint, `br_plus` tinyint, `bsmt1_out` varchar(100), `bsmt2_out` varchar(100), `cable` varchar(100), `cac_inc` varchar(100), `central_vac` varchar(100), `cert_lvl` varchar(100), `comel_inc` varchar(100), `community` varchar(100), `community_code` varchar(100), `comp_pts` varchar(100), `constr1_out` varchar(100), `constr2_out` varchar(100), `county` varchar(100), `cross_st` varchar(255), `den_fr` varchar(100), `depth` decimal(6,2), `disp_addr` varchar(100), `DOM` bigint, `drive` varchar(100), `elec` varchar(100), `elevator` varchar(100), `energy_cert` varchar(100), `extras` text, `farm_agri` varchar(100), `fpl_num` varchar(100), `front_ft` decimal(8,2), `fuel` varchar(100), `furnished` varchar(100), `gar_spaces` mediumint, `gar_type` varchar(100), `gas` varchar(100), `green_pis` varchar(100), `handi_equipped` varchar(100), `heat_inc` varchar(100), `heating` varchar(100), `hydro_inc` varchar(100), `irreg` varchar(100), `kit_plus` tinyint, `laundry` varchar(100), `laundry_lev` varchar(100), `lease_term` varchar(100), `level1` varchar(100), `level10` varchar(100), `level11` varchar(100), `level12` varchar(100), `level2` varchar(100), `level3` varchar(100), `level4` varchar(100), `level5` varchar(100), `level6` varchar(100), `level7` varchar(100), `level8` varchar(100), `level9` varchar(100), `lotsz_code` varchar(100), `lp_dol` int(11), `ml_num` varchar(100), `mmap_col` smallint, `mmap_page` mediumint, `mmap_row` varchar(100), `municipality` varchar(100), `municipality_code` varchar(100), `municipality_district` varchar(100), `num_kit` tinyint, `occ` varchar(100), `oth_struc1_out` varchar(100), `oth_struc2_out` varchar(100), `outof_area` varchar(100), `parcel_id` varchar(100), `park_chgs` bigint, `park_spcs` mediumint, `pay_freq` varchar(100), `pix_updt` datetime, `pool` varchar(100), `prkg_inc` varchar(100), `prop_feat1_out` varchar(100), `prop_feat2_out` varchar(100), `prop_feat3_out` varchar(100), `prop_feat4_out` varchar(100), `prop_feat5_out` varchar(100), `prop_feat6_out` varchar(100), `pvt_ent` varchar(100), `retirement` varchar(100), `rltr` varchar(100), `rm1_dc1_out` varchar(100), `rm1_dc2_out` varchar(100), `rm1_dc3_out` varchar(100), `rm1_len` bigint, `rm1_out` varchar(100), `rm1_wth` bigint, `rm10_dc1_out` varchar(100), `rm10_dc2_out` varchar(100), `rm10_dc3_out` varchar(100), `rm10_len` bigint, `rm10_out` varchar(100), `rm10_wth` bigint, `rm11_dc1_out` varchar(100), `rm11_dc2_out` varchar(100), `rm11_dc3_out` varchar(100), `rm11_len` bigint, `rm11_out` varchar(100), `rm11_wth` bigint, `rm12_dc1_out` varchar(100), `rm12_dc2_out` varchar(100), `rm12_dc3_out` varchar(100), `rm12_len` bigint, `rm12_out` varchar(100), `rm12_wth` bigint, `rm2_dc1_out` varchar(100), `rm2_dc2_out` varchar(100), `rm2_dc3_out` varchar(100), `rm2_len` bigint, `rm2_out` varchar(100), `rm2_wth` bigint, `rm3_dc1_out` varchar(100), `rm3_dc2_out` varchar(100), `rm3_dc3_out` varchar(100), `rm3_len` bigint, `rm3_out` varchar(100), `rm3_wth` bigint, `rm4_dc1_out` varchar(100), `rm4_dc2_out` varchar(100), `rm4_dc3_out` varchar(100), `rm4_len` bigint, `rm4_out` varchar(100), `rm4_wth` bigint, `rm5_dc1_out` varchar(100), `rm5_dc2_out` varchar(100), `rm5_dc3_out` varchar(100), `rm5_len` bigint, `rm5_out` varchar(100), `rm5_wth` bigint, `rm6_dc1_out` varchar(100), `rm6_dc2_out` varchar(100), `rm6_dc3_out` varchar(100), `rm6_len` bigint, `rm6_out` varchar(100), `rm6_wth` bigint, `rm7_dc1_out` varchar(100), `rm7_dc2_out` varchar(100), `rm7_dc3_out` varchar(100), `rm7_len` bigint, `rm7_out` varchar(100), `rm7_wth` bigint, `rm8_dc1_out` varchar(100), `rm8_dc2_out` varchar(100), `rm8_dc3_out` varchar(100), `rm8_len` bigint, `rm8_out` varchar(100), `rm8_wth` bigint, `rm9_dc1_out` varchar(100), `rm9_dc2_out` varchar(100), `rm9_dc3_out` varchar(100), `rm9_len` bigint, `rm9_out` varchar(100), `rm9_wth` bigint, `rms` smallint, `rooms_plus` tinyint, `s_r` varchar(100), `sewer` varchar(100), `spec_des1_out` varchar(100), `spec_des2_out` varchar(100), `spec_des3_out` varchar(100), `spec_des4_out` varchar(100), `spec_des5_out` varchar(100), `spec_des6_out` varchar(100), `sqft` varchar(100), `st` varchar(100), `st_dir` varchar(100), `st_num` varchar(100), `st_sfx` varchar(100), `status` varchar(100), `style` varchar(100), `taxes` bigint, `timestamp` varchar(100), `timestamp_sql` datetime, `tv` bigint, `type_own_srch` varchar(100), `type_own1_out` varchar(100), `uffi` varchar(100), `util_cable` varchar(100), `util_tel` varchar(100), `vend_pis` varchar(100), `water` varchar(100), `water_inc` varchar(100), `waterfront` varchar(100), `wcloset_p1` tinyint, `wcloset_p2` tinyint, `wcloset_p3` tinyint, `wcloset_p4` tinyint, `wcloset_p5` tinyint, `wcloset_t1` tinyint, `wcloset_t1lvl` varchar(100), `wcloset_t2` tinyint, `wcloset_t2lvl` varchar(100), `wcloset_t3` tinyint, `wcloset_t3lvl` varchar(100), `wcloset_t4` tinyint, `wcloset_t4lvl` varchar(100), `wcloset_t5` tinyint, `wcloset_t5lvl` varchar(100), `wtr_suptyp` varchar(100), `yr` int(11), `yr_built` varchar(100), `zip` varchar(100), `zoning` varchar(100), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (14.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150114044231')
+  [1m[36m (50.2ms)[0m  [1mCOMMIT[0m
+Migrating to Condo (20150114044730)
+  [1m[35m (837.0ms)[0m  CREATE TABLE `condos` (`id` int(11) auto_increment PRIMARY KEY, `a_c` varchar(100), `ad_text` text, `addr` varchar(100), `all_inc` varchar(100), `apt_num` varchar(100), `area` varchar(100), `area_code` varchar(100), `ass_year` int(11), `bath_tot` smallint, `bldg_amen1_out` varchar(100), `bldg_amen2_out` varchar(100), `bldg_amen3_out` varchar(100), `bldg_amen4_out` varchar(100), `bldg_amen5_out` varchar(100), `bldg_amen6_out` varchar(100), `br` tinyint, `br_plus` tinyint, `bsmt1_out` varchar(100), `bsmt2_out` varchar(100), `cable` varchar(100), `cac_inc` varchar(100), `central_vac` varchar(100), `cert_lvl` varchar(100), `comel_inc` varchar(100), `community` varchar(100), `community_code` varchar(100), `cond_txinc` varchar(100), `condo_corp` varchar(100), `condo_exp` varchar(100), `constr1_out` varchar(100), `constr2_out` varchar(100), `corp_num` int(11), `county` varchar(100), `cross_st` varchar(100), `den_fr` varchar(100), `disp_addr` varchar(100), `DOM` bigint, `elevator` varchar(100), `energy_cert` varchar(100), `ens_lndry` varchar(100), `extras` text, `fpl_num` varchar(100), `fuel` varchar(100), `furnished` varchar(100), `gar` mediumint, `gar_type` varchar(100), `green_pis` varchar(100), `handi_equipped` varchar(100), `heat_inc` varchar(100), `heating` varchar(100), `hydro_inc` varchar(100), `insur_bldg` varchar(100), `kit_plus` tinyint, `laundry` varchar(100), `laundry_lev` varchar(100), `level1` varchar(100), `level10` varchar(100), `level11` varchar(100), `level12` varchar(100), `level2` varchar(100), `level3` varchar(100), `level4` varchar(100), `level5` varchar(100), `level6` varchar(100), `level7` varchar(100), `level8` varchar(100), `level9` varchar(100), `locker` varchar(100), `locker_num` varchar(100), `lp_dol` int(11), `maint` bigint, `ml_num` varchar(100), `mmap_col` smallint, `mmap_page` mediumint, `mmap_row` varchar(100), `municipality` varchar(100), `municipality_code` varchar(100), `municipality_district` varchar(100), `num_kit` tinyint, `occ` varchar(100), `outof_area` varchar(100), `parcel_id` varchar(100), `park_chgs` bigint, `park_desig` varchar(100), `park_desig_2` varchar(100), `park_fac` varchar(100), `park_lgl_desc1` varchar(100), `park_lgl_desc2` varchar(100), `park_spc1` varchar(100), `park_spc2` varchar(100), `park_spcs` mediumint, `patio_ter` varchar(100), `pets` varchar(100), `pix_updt` datetime, `prkg_inc` varchar(100), `prop_feat1_out` varchar(100), `prop_feat2_out` varchar(100), `prop_feat3_out` varchar(100), `prop_feat4_out` varchar(100), `prop_feat5_out` varchar(100), `prop_feat6_out` varchar(100), `prop_mgmt` varchar(100), `pvt_ent` varchar(100), `retirement` varchar(100), `rltr` varchar(100), `rm1_dc1_out` varchar(100), `rm1_dc2_out` varchar(100), `rm1_dc3_out` varchar(100), `rm1_len` bigint, `rm1_out` varchar(100), `rm1_wth` bigint, `rm10_dc1_out` varchar(100), `rm10_dc2_out` varchar(100), `rm10_dc3_out` varchar(100), `rm10_len` bigint, `rm10_out` varchar(100), `rm10_wth` bigint, `rm11_dc1_out` varchar(100), `rm11_dc2_out` varchar(100), `rm11_dc3_out` varchar(100), `rm11_len` bigint, `rm11_out` varchar(100), `rm11_wth` bigint, `rm12_dc1_out` varchar(100), `rm12_dc2_out` varchar(100), `rm12_dc3_out` varchar(100), `rm12_len` bigint, `rm12_out` varchar(100), `rm12_wth` bigint, `rm2_dc1_out` varchar(100), `rm2_dc2_out` varchar(100), `rm2_dc3_out` varchar(100), `rm2_len` bigint, `rm2_out` varchar(100), `rm2_wth` bigint, `rm3_dc1_out` varchar(100), `rm3_dc2_out` varchar(100), `rm3_dc3_out` varchar(100), `rm3_len` bigint, `rm3_out` varchar(100), `rm3_wth` bigint, `rm4_dc1_out` varchar(100), `rm4_dc2_out` varchar(100), `rm4_dc3_out` varchar(100), `rm4_len` bigint, `rm4_out` varchar(100), `rm4_wth` bigint, `rm5_dc1_out` varchar(100), `rm5_dc2_out` varchar(100), `rm5_dc3_out` varchar(100), `rm5_len` bigint, `rm5_out` varchar(100), `rm5_wth` bigint, `rm6_dc1_out` varchar(100), `rm6_dc2_out` varchar(100), `rm6_dc3_out` varchar(100), `rm6_len` bigint, `rm6_out` varchar(100), `rm6_wth` bigint, `rm7_dc1_out` varchar(100), `rm7_dc2_out` varchar(100), `rm7_dc3_out` varchar(100), `rm7_len` bigint, `rm7_out` varchar(100), `rm7_wth` bigint, `rm8_dc1_out` varchar(100), `rm8_dc2_out` varchar(100), `rm8_dc3_out` varchar(100), `rm8_len` bigint, `rm8_out` varchar(100), `rm8_wth` bigint, `rm9_dc1_out` varchar(100), `rm9_dc2_out` varchar(100), `rm9_dc3_out` varchar(100), `rm9_len` bigint, `rm9_out` varchar(100), `rm9_wth` bigint, `rms` smallint, `rooms_plus` tinyint, `s_r` varchar(100), `share_perc` varchar(100), `spec_des1_out` varchar(100), `spec_des2_out` varchar(100), `spec_des3_out` varchar(100), `spec_des4_out` varchar(100), `spec_des5_out` varchar(100), `spec_des6_out` varchar(100), `sqft` varchar(100), `st` varchar(100), `st_dir` varchar(100), `st_num` varchar(100), `st_sfx` varchar(100), `status` varchar(100), `stories` varchar(100), `style` varchar(100), `taxes` bigint, `timestamp_sql` datetime, `tv` bigint, `type_own_srch` varchar(100), `type_own1_out` varchar(100), `uffi` varchar(100), `unit_num` varchar(100), `vend_pis` varchar(100), `water_inc` varchar(100), `wcloset_p1` tinyint, `wcloset_p2` tinyint, `wcloset_p3` tinyint, `wcloset_p4` tinyint, `wcloset_p5` tinyint, `wcloset_t1` tinyint, `wcloset_t1lvl` varchar(100), `wcloset_t2` tinyint, `wcloset_t2lvl` varchar(100), `wcloset_t3` tinyint, `wcloset_t3lvl` varchar(100), `wcloset_t4` tinyint, `wcloset_t4lvl` varchar(100), `wcloset_t5` tinyint, `wcloset_t5lvl` varchar(100), `yr` int(11), `yr_built` varchar(100), `zip` varchar(100), `zoning` varchar(100), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150114044730')
+  [1m[36m (30.4ms)[0m  [1mCOMMIT[0m
+Migrating to Commercial (20150114044929)
+  [1m[35m (269.7ms)[0m  CREATE TABLE `commercials` (`id` int(11) auto_increment PRIMARY KEY, `a_c` varchar(100), `ad_text` text, `addr` varchar(100), `amps` int(11), `apt_num` varchar(100), `area` varchar(100), `area_code` varchar(100), `area_infl1_out` varchar(100), `area_infl2_out` varchar(100), `ass_year` int(11), `bath_tot` smallint, `bay_size1` smallint, `bay_size1_in` smallint, `bay_size2` smallint, `bay_size2_in` smallint, `bsmt1_out` varchar(100), `bus_type` varchar(100), `ceil_ht` smallint, `ceil_ht_in` smallint, `cert_lvl` varchar(100), `chattels` varchar(100), `com_chgs` mediumint, `com_cn_fee` bigint, `community` varchar(100), `community_code` varchar(100), `county` varchar(100), `crane` varchar(100), `cross_st` varchar(100), `days_open` varchar(100), `dba` varchar(100), `depth` decimal(6,2), `disp_addr` varchar(100), `DOM` bigint, `elevator` varchar(100), `employees` smallint, `energy_cert` varchar(100), `exp_actest` varchar(3), `extras` text, `fin_stmnt` varchar(100), `franchise` varchar(100), `freestandg` varchar(100), `front_ft` decimal(8,2), `gar_type` varchar(100), `green_pis` varchar(100), `gross_inc` bigint, `handi_equipped` varchar(100), `heat_exp` bigint, `heating` varchar(100), `hours_open` varchar(100), `hydro_exp` bigint, `ind_area` bigint, `ind_areacd` varchar(100), `insur` bigint, `inventory` bigint, `irreg` varchar(100), `llbo` varchar(100), `lot_code` varchar(100), `lotsz_code` varchar(100), `lp_code` varchar(100), `lp_dol` decimal(11,2), `maint` decimal(7,2), `mgmt` bigint, `minrenttrm` mediumint, `ml_num` varchar(100), `mmap_col` smallint, `mmap_page` mediumint, `mmap_row` varchar(100), `municipality` varchar(100), `municipality_code` varchar(100), `municipality_district` varchar(100), `net_inc` bigint, `oa_area` bigint, `occ` varchar(100), `off_areacd` varchar(100), `oper_exp` bigint, `other` bigint, `out_storg` varchar(100), `outof_area` varchar(100), `parcel_id` varchar(100), `park_spcs` mediumint, `perc_bldg` mediumint, `perc_rent` mediumint, `pix_updt` datetime, `prop_type` varchar(100), `rail` varchar(100), `retail_a` bigint, `retail_ac` varchar(100), `rltr` varchar(100), `s_r` varchar(100), `seats` mediumint, `sewer` varchar(100), `shpdrsdlhtft` smallint, `shpdrsdlhtin` smallint, `shpdrsdlnu` smallint, `shpdrsdlwdft` smallint, `shpdrsdlwdin` smallint, `shpdrsdmhtft` smallint, `shpdrsdmhtin` smallint, `shpdrsdmnu` smallint, `shpdrsdmwdft` smallint, `shpdrsdmwdin` smallint, `shpdrsglhtft` smallint, `shpdrsglhtin` smallint, `shpdrsglnu` smallint, `shpdrsglwdft` smallint, `shpdrsglwdin` smallint, `shpdrstlhtft` smallint, `shpdrstlhtin` smallint, `shpdrstlnu` smallint, `shpdrstlwdft` smallint, `shpdrstlwdin` smallint, `soil_test` varchar(100), `sprinklers` varchar(100), `st` varchar(100), `st_dir` varchar(100), `st_num` varchar(100), `st_sfx` varchar(100), `status` varchar(100), `survey` varchar(100), `taxes` decimal(8,2), `taxes_exp` bigint, `terms` mediumint, `timestamp_sql` datetime, `tot_area` decimal(10,2), `tot_areacd` varchar(100), `trlr_pk_spt` int(11), `tv` bigint, `type_own_srch` varchar(100), `type_own1_out` varchar(100), `type_taxes` varchar(100), `uffi` varchar(100), `utilities` varchar(100), `vac_perc` bigint, `vend_pis` varchar(100), `volts` mediumint, `water` varchar(100), `water_exp` bigint, `wtr_suptyp` varchar(100), `yr` int(11), `yr_built` varchar(100), `yr_exp` int(11), `zip` varchar(100), `zoning` varchar(100), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150114044929')
+  [1m[36m (31.0ms)[0m  [1mCOMMIT[0m
+Migrating to DeviseCreateUsers (20150121235200)
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/admin123/railswork/zumin/db/migrate/20150121235200_devise_create_users.rb:37)
+  [1m[35m (262.7ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `first_name` varchar(255), `last_name` varchar(255), `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (244.0ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (291.1ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150121235200')
+  [1m[36m (42.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMailboxer (20150122010955)
+  [1m[35m (811.6ms)[0m  CREATE TABLE `mailboxer_conversations` (`id` int(11) auto_increment PRIMARY KEY, `subject` varchar(255) DEFAULT '', `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (278.1ms)[0m  [1mCREATE TABLE `mailboxer_receipts` (`id` int(11) auto_increment PRIMARY KEY, `receiver_id` int(11), `receiver_type` varchar(255), `notification_id` int(11) NOT NULL, `is_read` tinyint(1) DEFAULT 0, `trashed` tinyint(1) DEFAULT 0, `deleted` tinyint(1) DEFAULT 0, `mailbox_type` varchar(25), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (266.9ms)[0m  CREATE TABLE `mailboxer_notifications` (`id` int(11) auto_increment PRIMARY KEY, `type` varchar(255), `body` text, `subject` varchar(255) DEFAULT '', `sender_id` int(11), `sender_type` varchar(255), `conversation_id` int(11), `draft` tinyint(1) DEFAULT 0, `notification_code` varchar(255), `notified_object_id` int(11), `notified_object_type` varchar(255), `attachment` varchar(255), `updated_at` datetime NOT NULL, `created_at` datetime NOT NULL, `global` tinyint(1) DEFAULT 0, `expires` datetime) ENGINE=InnoDB
+  [1m[36m (311.2ms)[0m  [1mCREATE  INDEX `index_mailboxer_receipts_on_notification_id`  ON `mailboxer_receipts` (`notification_id`) [0m
+  [1m[35m (323.3ms)[0m  CREATE  INDEX `index_mailboxer_notifications_on_conversation_id`  ON `mailboxer_notifications` (`conversation_id`) 
+  [1m[36m (781.8ms)[0m  [1mALTER TABLE `mailboxer_receipts` ADD CONSTRAINT `receipts_on_notification_id`
+FOREIGN KEY (`notification_id`)
+  REFERENCES `mailboxer_notifications` (`id`)
+[0m
+  [1m[35m (770.2ms)[0m  ALTER TABLE `mailboxer_notifications` ADD CONSTRAINT `notifications_on_conversation_id`
+FOREIGN KEY (`conversation_id`)
+  REFERENCES `mailboxer_conversations` (`id`)
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150122010955')
+  [1m[36m (42.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddConversationOptout (20150122010956)
+  [1m[35m (272.0ms)[0m  CREATE TABLE `mailboxer_conversation_opt_outs` (`id` int(11) auto_increment PRIMARY KEY, `unsubscriber_id` int(11), `unsubscriber_type` varchar(255), `conversation_id` int(11)) ENGINE=InnoDB
+  [1m[36m (692.7ms)[0m  [1mALTER TABLE `mailboxer_conversation_opt_outs` ADD CONSTRAINT `mb_opt_outs_on_conversations_id`
+FOREIGN KEY (`conversation_id`)
+  REFERENCES `mailboxer_conversations` (`id`)
+[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (15.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150122010956')[0m
+  [1m[35m (38.6ms)[0m  COMMIT
+Migrating to AddMissingIndices (20150122010957)
+  [1m[36m (325.8ms)[0m  [1mCREATE  INDEX `index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type`  ON `mailboxer_conversation_opt_outs` (`unsubscriber_id`, `unsubscriber_type`) [0m
+  [1m[35m (445.4ms)[0m  CREATE  INDEX `index_mailboxer_conversation_opt_outs_on_conversation_id`  ON `mailboxer_conversation_opt_outs` (`conversation_id`) 
+  [1m[36m (332.8ms)[0m  [1mCREATE  INDEX `index_mailboxer_notifications_on_type`  ON `mailboxer_notifications` (`type`) [0m
+  [1m[35m (303.8ms)[0m  CREATE  INDEX `index_mailboxer_notifications_on_sender_id_and_sender_type`  ON `mailboxer_notifications` (`sender_id`, `sender_type`) 
+  [1m[36m (334.0ms)[0m  [1mCREATE  INDEX `index_mailboxer_notifications_on_notified_object_id_and_type`  ON `mailboxer_notifications` (`notified_object_id`, `notified_object_type`) [0m
+  [1m[35m (311.5ms)[0m  CREATE  INDEX `index_mailboxer_receipts_on_receiver_id_and_receiver_type`  ON `mailboxer_receipts` (`receiver_id`, `receiver_type`) 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150122010957')
+  [1m[36m (42.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddFayeTokenToUsers (20150122030946)
+  [1m[35m (621.0ms)[0m  ALTER TABLE `users` ADD `faye_token` varchar(255)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150122030946')
+  [1m[36m (30.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateImpressionsTable (20150201221356)
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /home/admin123/railswork/zumin/db/migrate/20150201221356_create_impressions_table.rb:15)
+  [1m[35m (286.6ms)[0m  CREATE TABLE `impressions` (`id` int(11) auto_increment PRIMARY KEY, `impressionable_type` varchar(255), `impressionable_id` int(11), `user_id` int(11), `controller_name` varchar(255), `action_name` varchar(255), `view_name` varchar(255), `request_hash` varchar(255), `ip_address` varchar(255), `session_hash` varchar(255), `message` text, `referrer` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (267.5ms)[0m  [1mCREATE  INDEX `impressionable_type_message_index`  ON `impressions` (`impressionable_type`, `message`(255), `impressionable_id`) [0m
+  [1m[35m (322.8ms)[0m  CREATE  INDEX `poly_request_index`  ON `impressions` (`impressionable_type`, `impressionable_id`, `request_hash`) 
+  [1m[36m (389.5ms)[0m  [1mCREATE  INDEX `poly_ip_index`  ON `impressions` (`impressionable_type`, `impressionable_id`, `ip_address`) [0m
+  [1m[35m (401.3ms)[0m  CREATE  INDEX `poly_session_index`  ON `impressions` (`impressionable_type`, `impressionable_id`, `session_hash`) 
+  [1m[36m (294.5ms)[0m  [1mCREATE  INDEX `controlleraction_request_index`  ON `impressions` (`controller_name`, `action_name`, `request_hash`) [0m
+  [1m[35m (350.3ms)[0m  CREATE  INDEX `controlleraction_ip_index`  ON `impressions` (`controller_name`, `action_name`, `ip_address`) 
+  [1m[36m (355.9ms)[0m  [1mCREATE  INDEX `controlleraction_session_index`  ON `impressions` (`controller_name`, `action_name`, `session_hash`) [0m
+  [1m[35m (304.7ms)[0m  CREATE  INDEX `index_impressions_on_user_id`  ON `impressions` (`user_id`) 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150201221356')
+  [1m[36m (71.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateListingImages (20150202005351)
+  [1m[35m (245.1ms)[0m  CREATE TABLE `listing_images` (`id` int(11) auto_increment PRIMARY KEY, `imageable_type` varchar(255), `imageable_id` int(11), `image_src` varchar(255)) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150202005351')
+  [1m[36m (40.9ms)[0m  [1mCOMMIT[0m
+Migrating to AddFieldsToUsers (20150202042344)
+  [1m[35m (926.0ms)[0m  ALTER TABLE `users` ADD `address` varchar(255)
+  [1m[36m (626.0ms)[0m  [1mALTER TABLE `users` ADD `city` varchar(255)[0m
+  [1m[35m (861.0ms)[0m  ALTER TABLE `users` ADD `province` varchar(255)
+  [1m[36m (1282.8ms)[0m  [1mALTER TABLE `users` ADD `country` varchar(255)[0m
+  [1m[35m (583.5ms)[0m  ALTER TABLE `users` ADD `postal_code` varchar(255)
+  [1m[36m (648.8ms)[0m  [1mALTER TABLE `users` ADD `phone_number` varchar(255)[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150202042344')[0m
+  [1m[35m (30.7ms)[0m  COMMIT
+Migrating to CreateDelayedJobs (20150204040649)
+  [1m[36m (244.2ms)[0m  [1mCREATE TABLE `delayed_jobs` (`id` int(11) auto_increment PRIMARY KEY, `priority` int(11) DEFAULT 0 NOT NULL, `attempts` int(11) DEFAULT 0 NOT NULL, `handler` text NOT NULL, `last_error` text, `run_at` datetime, `locked_at` datetime, `failed_at` datetime, `locked_by` varchar(255), `queue` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (255.9ms)[0m  CREATE  INDEX `delayed_jobs_priority`  ON `delayed_jobs` (`priority`, `run_at`) 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150204040649')
+  [1m[36m (42.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFavourites (20150206040357)
+  [1m[35m (359.6ms)[0m  CREATE TABLE `favourites` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `favouriteable_type` varchar(255), `favouriteable_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (10.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150206040357')
+  [1m[36m (41.6ms)[0m  [1mCOMMIT[0m
+Migrating to AddLatLongToResidentials (20150207030711)
+  [1m[35m (414.1ms)[0m  ALTER TABLE `residentials` ADD `latitude` float
+  [1m[36m (447.4ms)[0m  [1mALTER TABLE `residentials` ADD `longitude` float[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150207030711')[0m
+  [1m[35m (40.7ms)[0m  COMMIT
+Migrating to AddOmniauthToUsers (20150208162620)
+  [1m[36m (660.5ms)[0m  [1mALTER TABLE `users` ADD `provider` varchar(255)[0m
+  [1m[35m (614.9ms)[0m  ALTER TABLE `users` ADD `uid` varchar(255)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150208162620')
+  [1m[36m (31.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateVisits (20150210004549)
+  [1m[35m (243.4ms)[0m  CREATE TABLE `visits` (`id` binary(16) PRIMARY KEY, `visitor_id` binary(16), `ip` varchar(255), `user_agent` text, `referrer` text, `landing_page` text, `user_id` int(11), `referring_domain` varchar(255), `search_keyword` varchar(255), `browser` varchar(255), `os` varchar(255), `device_type` varchar(255), `screen_height` int(11), `screen_width` int(11), `country` varchar(255), `region` varchar(255), `city` varchar(255), `utm_source` varchar(255), `utm_medium` varchar(255), `utm_term` varchar(255), `utm_content` varchar(255), `utm_campaign` varchar(255), `started_at` datetime) ENGINE=InnoDB
+  [1m[36m (267.1ms)[0m  [1mCREATE  INDEX `index_visits_on_user_id`  ON `visits` (`user_id`) [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150210004549')[0m
+  [1m[35m (42.4ms)[0m  COMMIT
+Migrating to CreateAhoyEvents (20150210004550)
+  [1m[36m (335.2ms)[0m  [1mCREATE TABLE `ahoy_events` (`id` binary(16) PRIMARY KEY, `visit_id` binary(16), `user_id` int(11), `name` varchar(255), `properties` text, `time` datetime) ENGINE=InnoDB[0m
+  [1m[35m (256.1ms)[0m  CREATE  INDEX `index_ahoy_events_on_visit_id`  ON `ahoy_events` (`visit_id`) 
+  [1m[36m (233.8ms)[0m  [1mCREATE  INDEX `index_ahoy_events_on_user_id`  ON `ahoy_events` (`user_id`) [0m
+  [1m[35m (278.6ms)[0m  CREATE  INDEX `index_ahoy_events_on_time`  ON `ahoy_events` (`time`) 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150210004550')
+  [1m[36m (42.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddSubscriptionFieldsToUsers (20150212041644)
+  [1m[35m (615.8ms)[0m  ALTER TABLE `users` ADD `unsubscribe_all` tinyint(1)
+  [1m[36m (637.2ms)[0m  [1mALTER TABLE `users` ADD `newsletter_subscribed` tinyint(1)[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150212041644')[0m
+  [1m[35m (42.4ms)[0m  COMMIT
+Migrating to CreateLandings (20150213032421)
+  [1m[36m (255.2ms)[0m  [1mCREATE TABLE `landings` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `slug` varchar(255), `main_heading` varchar(255), `sub_heading` varchar(255), `description` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150213032421')[0m
+  [1m[35m (42.6ms)[0m  COMMIT
+Migrating to AddAttachmentBgImageToLandings (20150213214437)
+  [1m[36m (481.4ms)[0m  [1mALTER TABLE `landings` ADD `bg_image_file_name` varchar(255)[0m
+  [1m[35m (571.2ms)[0m  ALTER TABLE `landings` ADD `bg_image_content_type` varchar(255)
+  [1m[36m (459.0ms)[0m  [1mALTER TABLE `landings` ADD `bg_image_file_size` int(11)[0m
+  [1m[35m (493.4ms)[0m  ALTER TABLE `landings` ADD `bg_image_updated_at` datetime
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150213214437')
+  [1m[36m (31.1ms)[0m  [1mCOMMIT[0m
+Migrating to AddAdminToUsers (20150224022129)
+  [1m[35m (670.2ms)[0m  ALTER TABLE `users` ADD `admin` tinyint(1)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150224022129')
+  [1m[36m (41.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddDeletedAtToResidentials (20150224033921)
+  [1m[35m (592.9ms)[0m  ALTER TABLE `residentials` ADD `deleted_at` datetime
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150224033921')
+  [1m[36m (55.6ms)[0m  [1mCOMMIT[0m
+Migrating to AddFieldsToShowToResidential (20150225044921)
+  [1m[35m (547.6ms)[0m  ALTER TABLE `residentials` ADD `fields_to_show` text
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150225044921')
+  [1m[36m (41.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddTypeToLandings (20150413012807)
+  [1m[35m (704.5ms)[0m  ALTER TABLE `landings` ADD `landing_type` varchar(255)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (115.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150413012807')
+  [1m[36m (37.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateListings (20150516000836)
+  [1m[35m (257.1ms)[0m  CREATE TABLE `listings` (`id` int(11) auto_increment PRIMARY KEY, `a_c` varchar(100), `acres` varchar(100), `ad_text` text, `addr` varchar(100), `all_inc` varchar(100), `apt_num` varchar(100), `area` varchar(100), `area_code` varchar(100), `ass_year` int(11), `bath_tot` smallint, `br` tinyint, `br_plus` tinyint, `bsmt1_out` varchar(100), `bsmt2_out` varchar(100), `cable` varchar(100), `cac_inc` varchar(100), `central_vac` varchar(100), `cert_lvl` varchar(100), `comel_inc` varchar(100), `community` varchar(100), `community_code` varchar(100), `comp_pts` varchar(100), `constr1_out` varchar(100), `constr2_out` varchar(100), `county` varchar(100), `cross_st` varchar(255), `den_fr` varchar(100), `depth` decimal(6,2), `disp_addr` varchar(100), `DOM` bigint, `drive` varchar(100), `elec` varchar(100), `elevator` varchar(100), `energy_cert` varchar(100), `extras` text, `farm_agri` varchar(100), `fpl_num` varchar(100), `front_ft` decimal(8,2), `fuel` varchar(100), `furnished` varchar(100), `gar_spaces` mediumint, `gar_type` varchar(100), `gas` varchar(100), `green_pis` varchar(100), `handi_equipped` varchar(100), `heat_inc` varchar(100), `heating` varchar(100), `hydro_inc` varchar(100), `irreg` varchar(100), `kit_plus` tinyint, `laundry` varchar(100), `laundry_lev` varchar(100), `lease_term` varchar(100), `level1` varchar(100), `level10` varchar(100), `level11` varchar(100), `level12` varchar(100), `level2` varchar(100), `level3` varchar(100), `level4` varchar(100), `level5` varchar(100), `level6` varchar(100), `level7` varchar(100), `level8` varchar(100), `level9` varchar(100), `lotsz_code` varchar(100), `lp_dol` int(11), `ml_num` varchar(100), `mmap_col` smallint, `mmap_page` mediumint, `mmap_row` varchar(100), `municipality` varchar(100), `municipality_code` varchar(100), `municipality_district` varchar(100), `num_kit` tinyint, `occ` varchar(100), `oth_struc1_out` varchar(100), `oth_struc2_out` varchar(100), `outof_area` varchar(100), `parcel_id` varchar(100), `park_chgs` bigint, `park_spcs` mediumint, `pay_freq` varchar(100), `pix_updt` datetime, `pool` varchar(100), `prkg_inc` varchar(100), `prop_feat1_out` varchar(100), `prop_feat2_out` varchar(100), `prop_feat3_out` varchar(100), `prop_feat4_out` varchar(100), `prop_feat5_out` varchar(100), `prop_feat6_out` varchar(100), `pvt_ent` varchar(100), `retirement` varchar(100), `rltr` varchar(100), `rm1_dc1_out` varchar(100), `rm1_dc2_out` varchar(100), `rm1_dc3_out` varchar(100), `rm1_len` bigint, `rm1_out` varchar(100), `rm1_wth` bigint, `rm10_dc1_out` varchar(100), `rm10_dc2_out` varchar(100), `rm10_dc3_out` varchar(100), `rm10_len` bigint, `rm10_out` varchar(100), `rm10_wth` bigint, `rm11_dc1_out` varchar(100), `rm11_dc2_out` varchar(100), `rm11_dc3_out` varchar(100), `rm11_len` bigint, `rm11_out` varchar(100), `rm11_wth` bigint, `rm12_dc1_out` varchar(100), `rm12_dc2_out` varchar(100), `rm12_dc3_out` varchar(100), `rm12_len` bigint, `rm12_out` varchar(100), `rm12_wth` bigint, `rm2_dc1_out` varchar(100), `rm2_dc2_out` varchar(100), `rm2_dc3_out` varchar(100), `rm2_len` bigint, `rm2_out` varchar(100), `rm2_wth` bigint, `rm3_dc1_out` varchar(100), `rm3_dc2_out` varchar(100), `rm3_dc3_out` varchar(100), `rm3_len` bigint, `rm3_out` varchar(100), `rm3_wth` bigint, `rm4_dc1_out` varchar(100), `rm4_dc2_out` varchar(100), `rm4_dc3_out` varchar(100), `rm4_len` bigint, `rm4_out` varchar(100), `rm4_wth` bigint, `rm5_dc1_out` varchar(100), `rm5_dc2_out` varchar(100), `rm5_dc3_out` varchar(100), `rm5_len` bigint, `rm5_out` varchar(100), `rm5_wth` bigint, `rm6_dc1_out` varchar(100), `rm6_dc2_out` varchar(100), `rm6_dc3_out` varchar(100), `rm6_len` bigint, `rm6_out` varchar(100), `rm6_wth` bigint, `rm7_dc1_out` varchar(100), `rm7_dc2_out` varchar(100), `rm7_dc3_out` varchar(100), `rm7_len` bigint, `rm7_out` varchar(100), `rm7_wth` bigint, `rm8_dc1_out` varchar(100), `rm8_dc2_out` varchar(100), `rm8_dc3_out` varchar(100), `rm8_len` bigint, `rm8_out` varchar(100), `rm8_wth` bigint, `rm9_dc1_out` varchar(100), `rm9_dc2_out` varchar(100), `rm9_dc3_out` varchar(100), `rm9_len` bigint, `rm9_out` varchar(100), `rm9_wth` bigint, `rms` smallint, `rooms_plus` tinyint, `s_r` varchar(100), `sewer` varchar(100), `spec_des1_out` varchar(100), `spec_des2_out` varchar(100), `spec_des3_out` varchar(100), `spec_des4_out` varchar(100), `spec_des5_out` varchar(100), `spec_des6_out` varchar(100), `sqft` varchar(100), `st` varchar(100), `st_dir` varchar(100), `st_num` varchar(100), `st_sfx` varchar(100), `status` varchar(100), `style` varchar(100), `taxes` bigint, `timestamp` varchar(100), `timestamp_sql` datetime, `tv` bigint, `type_own_srch` varchar(100), `type_own1_out` varchar(100), `uffi` varchar(100), `util_cable` varchar(100), `util_tel` varchar(100), `vend_pis` varchar(100), `water` varchar(100), `water_inc` varchar(100), `waterfront` varchar(100), `wcloset_p1` tinyint, `wcloset_p2` tinyint, `wcloset_p3` tinyint, `wcloset_p4` tinyint, `wcloset_p5` tinyint, `wcloset_t1` tinyint, `wcloset_t1lvl` varchar(100), `wcloset_t2` tinyint, `wcloset_t2lvl` varchar(100), `wcloset_t3` tinyint, `wcloset_t3lvl` varchar(100), `wcloset_t4` tinyint, `wcloset_t4lvl` varchar(100), `wcloset_t5` tinyint, `wcloset_t5lvl` varchar(100), `wtr_suptyp` varchar(100), `yr` int(11), `yr_built` varchar(100), `zip` varchar(100), `zoning` varchar(100), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `latitude` float(24), `longitude` float(24), `deleted_at` datetime, `fields_to_show` text, `share_perc` varchar(100), `patio_ter` varchar(100), `bldg_amen1_out` varchar(100), `bldg_amen2_out` varchar(100), `bldg_amen3_out` varchar(100), `bldg_amen4_out` varchar(100), `bldg_amen5_out` varchar(100), `bldg_amen6_out` varchar(100), `insur_bldg` varchar(100), `corp_num` int(11), `condo_corp` varchar(100), `cond_txinc` varchar(100), `ens_lndry` varchar(100), `condo_exp` varchar(100), `gar` int(11), `stories` varchar(100), `locker` varchar(100), `locker_num` varchar(100), `maint` int(11), `park_lgl_desc1` varchar(100), `park_lgl_desc2` varchar(100), `park_spc1` varchar(100), `park_spc2` varchar(100), `park_desig` varchar(100), `park_desig_2` varchar(100), `park_fac` varchar(100), `pets` varchar(100), `prop_mgmt` varchar(100), `unit_num` varchar(100), `listing_type` varchar(100), `visibility` varchar(100)) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150516000836')
+  [1m[36m (31.2ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveUnusedTables (20150516001605)
+  [1m[35m (110.9ms)[0m  DROP TABLE `condos`
+  [1m[36m (143.1ms)[0m  [1mDROP TABLE `commercials`[0m
+  [1m[35m (136.0ms)[0m  DROP TABLE `residentials`
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150516001605')
+  [1m[36m (42.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (7.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'ahoy_events'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `ahoy_events`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'delayed_jobs'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `delayed_jobs`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'favourites'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `favourites`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'impressions'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `impressions`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'landings'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `landings`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'listing_images'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `listing_images`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'listings'
+[0m
+  [1m[35m (0.8ms)[0m  SHOW CREATE TABLE `listings`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'mailboxer_conversation_opt_outs'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `mailboxer_conversation_opt_outs`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'mailboxer_conversations'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `mailboxer_conversations`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'mailboxer_notifications'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `mailboxer_notifications`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'mailboxer_receipts'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `mailboxer_receipts`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.3ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'zumin_development'
+  AND fk.table_name = 'visits'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `visits`
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 01:02:13 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (176.5ms)
+  Rendered layouts/_header.html.erb (40.1ms)
+  Rendered layouts/_flash_messages.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (264.5ms)
+Completed 200 OK in 9468ms (Views: 9411.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application-f87eb0cafd45b4807b48e37536f0bc24.css?body=1" for 127.0.0.1 at 2015-12-29 01:02:24 +0100
+
+
+Started GET "/assets/bootstrap_and_overrides-1b0c4046b58d1afc93d69abb1e193d71.css?body=1" for 127.0.0.1 at 2015-12-29 01:02:24 +0100
+
+
+Started GET "/assets/zumin-6e1550775895ffb08cb23a4193664eb5.css?body=1" for 127.0.0.1 at 2015-12-29 01:02:24 +0100
+
+
+Started GET "/assets/listings-dbf577d03d44ec3970e08f37e37bd6cc.css?body=1" for 127.0.0.1 at 2015-12-29 01:02:24 +0100
+
+
+Started GET "/assets/nanoscroller-3ff865c62d70604a3fddfc3311585140.css?body=1" for 127.0.0.1 at 2015-12-29 01:02:24 +0100
+
+
+Started GET "/assets/pin_clusterer-a9171ab713d4f2cfa99b5f8eeb1980e3.css?body=1" for 127.0.0.1 at 2015-12-29 01:02:24 +0100
+
+
+Started GET "/assets/owl.carousel-be4a0b2b8ef8932ab4172032a3d79ae9.css?body=1" for 127.0.0.1 at 2015-12-29 01:02:24 +0100
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:24 +0100
+
+
+Started GET "/assets/bootstrap-select-1f29904315be59e983ec0af32baeb2cb.css?body=1" for 127.0.0.1 at 2015-12-29 01:02:24 +0100
+
+
+Started GET "/assets/landings-069e88c06b889877799890854d7f4c40.css?body=1" for 127.0.0.1 at 2015-12-29 01:02:25 +0100
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:25 +0100
+
+
+Started GET "/assets/smart_listing-81a3da685ecfd2c0e15967bc3ab2c4f0.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:25 +0100
+
+
+Started GET "/assets/bootstrap/affix-d1e60cd74ea2959ee9308fb04a0641cc.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:25 +0100
+
+
+Started GET "/assets/bootstrap/alert-7ce5b188e150d7273b1544cc4eaaae43.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:25 +0100
+
+
+Started GET "/assets/bootstrap/carousel-4e12c9c6c384f3c9f7a016987c2a4f6d.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:25 +0100
+
+
+Started GET "/assets/bootstrap/button-fd225ab40e387380a37e9f9dc9754bf4.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:25 +0100
+
+
+Started GET "/assets/bootstrap/collapse-b858721f2e3b0e1fa404767ebe86dcb5.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:25 +0100
+
+
+Started GET "/assets/bootstrap/dropdown-e68e68f3f25f876af05d4f9c2aee2b77.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:25 +0100
+
+
+Started GET "/assets/bootstrap/transition-233b809a23bb0c398281cbb5727593fb.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:25 +0100
+
+
+Started GET "/assets/bootstrap/tab-e677a3183921c45025a4413d38a54a39.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:25 +0100
+
+
+Started GET "/assets/bootstrap/modal-f951119ef9ea6d91bf0f95afd173fbdb.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy-61ed7b04f91488e7938cc1dc21ebfe09.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/bootstrap/tooltip-3b8e756bc7905c4994c006f53b28a7e6.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/bootstrap/popover-e1dba2c7fd78be2cc26a2f387466056d.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/bootstrap-sprockets-5c5ef82e7036f6b47056863616ac2067.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/jquery.nanoscroller.min-cefbf84afafd77595589986808e53075.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/owl.carousel.min-ae99db3f42f63d32df343f5f9680d069.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/main-ab82801ca611d02697822bad9d7ae070.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/private_pub-4db4e1bf968d87d6d61a4c222721fbf0.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/ahoy-237f2c034169a5b4132f2cffe24fbfcf.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/pin_clusterer-4ea189a3be18d008c9e65e760223daae.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/bootstrap-select-40ba67dc0375059ce0333fea6f132ef4.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/angular-resource-b84fbd70ae33f4aa0f7f2bc224fff8f5.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/angular-a80794dc3d63d4bdaae013e81cda34f4.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/angular/messaging_controller-8f6eecd1178ef85964369ec66d33c4f1.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/angular-ui-bootstrap-a6ef9b9e12f546e3214802d773111415.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/angular/listings_controller-d9bdce8f2fed8bc296dfc678186d9bff.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/jquery.geocomplete.min-db33d816028436997f3d45873dfb99f1.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/angular/ngtimeago-189a0bddd5ce1991954d6e5bf355915a.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/application-ef6349f7bcdb50866ba37808faff9011.js?body=1" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/logo-612fe6c8f877db386d3785bfef81aeb5.png" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/share-3ee43666a942c0a04020682ed7db86ac.png" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/img-06-26db142a7eac6e6f794d980ca21739f1.jpg" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/img-05-819b44772f20b9a3aa2397cade4471d9.jpg" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/img-03-10ca403995f5f6012e03e2d74e685464.png" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/img-04-0c6d317cd6dfe95e8565de29007cd5ff.jpg" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/vm-white-c6d17bdd671559ad615ba6d10550ab4c.png" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/img-07-f044713e2eeb1138bbd0e8cc3675d7c4.png" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/img-08-b46a083ce7d0159221724e78bbc70630.jpg" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/vm-grey-5a82bc4602bfafa3afd748a55259a55f.png" for 127.0.0.1 at 2015-12-29 01:02:26 +0100
+
+
+Started GET "/assets/proximanova-semibold-webfont-8fe48894b230313c4e84bfc99d02c183.woff" for 127.0.0.1 at 2015-12-29 01:02:27 +0100
+
+
+Started GET "/assets/img-01-1d48293502e00aa333e1a161bd03b02b.jpg" for 127.0.0.1 at 2015-12-29 01:02:27 +0100
+
+
+Started GET "/assets/proximanova-regular-webfont-83489630ba8008f4f942af1fa2dd615a.woff" for 127.0.0.1 at 2015-12-29 01:02:27 +0100
+
+
+Started GET "/assets/proximanova-light-webfont-4c7289982ce6dab4037586c5b7d23bae.woff" for 127.0.0.1 at 2015-12-29 01:02:27 +0100
+
+
+Started GET "/assets/icon-mouse-5044810797f0f618ab72a42ef8955354.png" for 127.0.0.1 at 2015-12-29 01:02:27 +0100
+
+
+Started GET "/assets/proximanova-bold-webfont-49bb241f2ca8e64975b375dec08d6dce.woff" for 127.0.0.1 at 2015-12-29 01:02:27 +0100
+
+
+Started GET "/assets/icon-right-grey-6a22d84bc9cb8d6b7b4bdfa1122763ee.png" for 127.0.0.1 at 2015-12-29 01:02:27 +0100
+
+
+Started GET "/assets/bg-01-c354f642d544ef5d763f2ddf3f5c1cfe.png" for 127.0.0.1 at 2015-12-29 01:02:27 +0100
+
+
+Started GET "/assets/icon-01-5ee05a95d4a8f2fc313d2bf900f2e4ec.png" for 127.0.0.1 at 2015-12-29 01:02:27 +0100
+
+
+Started GET "/assets/bg-03-17f4777b715154699b2ef809c7ec1106.png" for 127.0.0.1 at 2015-12-29 01:02:27 +0100
+
+
+Started GET "/assets/icon-calculator-633440d151cdf95504407e1c7b2bc0f4.png" for 127.0.0.1 at 2015-12-29 01:02:28 +0100
+
+
+Started GET "/assets/icon-02-0ab315a151e68fefbdc4ee411cfea5f2.png" for 127.0.0.1 at 2015-12-29 01:02:28 +0100
+
+
+Started GET "/assets/icon-left-grey-ce57f3e8a7fd889a2dac8bc3b73034b3.png" for 127.0.0.1 at 2015-12-29 01:02:28 +0100
+
+
+Started GET "/assets/icon-social-f876403adeac083d1056c9ea41533cc0.png" for 127.0.0.1 at 2015-12-29 01:02:28 +0100
+
+
+Started GET "/assets/bg-02-1cb5a0eb775610143536fd08344712d1.png" for 127.0.0.1 at 2015-12-29 01:02:28 +0100
+
+
+Started GET "/assets/icon-footer-5620f24275ed4b9ceed318c75caf7caa.png" for 127.0.0.1 at 2015-12-29 01:02:28 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 01:02:31 +0100
+Processing by HomeController#index as */*
+  Rendered home/index.html.erb within layouts/application (12.3ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_flash_messages.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (33.6ms)
+Completed 200 OK in 724ms (Views: 721.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/icon-right-orange-b666bbf8628df8d451ca8ede352a25d2.png" for 127.0.0.1 at 2015-12-29 01:02:34 +0100
+
+
+Started GET "/phpmyadmin" for 127.0.0.1 at 2015-12-29 01:02:50 +0100
+
+ActionController::RoutingError (No route matches [GET] "/phpmyadmin"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  ahoy_matey (1.1.1) lib/ahoy/engine.rb:20:in `call_with_quiet_ahoy'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.4) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.4) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.0) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.0) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<top (required)>'
+  spring (1.2.0) lib/spring/client/rails.rb:27:in `load'
+  spring (1.2.0) lib/spring/client/rails.rb:27:in `call'
+  spring (1.2.0) lib/spring/client/command.rb:7:in `call'
+  spring (1.2.0) lib/spring/client.rb:26:in `run'
+  spring (1.2.0) bin/spring:48:in `<top (required)>'
+  spring (1.2.0) lib/spring/binstub.rb:11:in `load'
+  spring (1.2.0) lib/spring/binstub.rb:11:in `<top (required)>'
+  bin/spring:16:in `require'
+  bin/spring:16:in `<top (required)>'
+  bin/rails:3:in `load'
+  bin/rails:3:in `<main>'
+
+
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (6.4ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.3ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (57.5ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.7ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (472.1ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2015-12-29 16:41:11 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (147.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (No route matches [GET] "/signin"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  ahoy_matey (1.1.1) lib/ahoy/engine.rb:20:in `call_with_quiet_ahoy'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.4) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.4) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.0) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.0) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<top (required)>'
+  spring (1.2.0) lib/spring/client/rails.rb:27:in `load'
+  spring (1.2.0) lib/spring/client/rails.rb:27:in `call'
+  spring (1.2.0) lib/spring/client/command.rb:7:in `call'
+  spring (1.2.0) lib/spring/client.rb:26:in `run'
+  spring (1.2.0) bin/spring:48:in `<top (required)>'
+  spring (1.2.0) lib/spring/binstub.rb:11:in `load'
+  spring (1.2.0) lib/spring/binstub.rb:11:in `<top (required)>'
+  bin/spring:16:in `require'
+  bin/spring:16:in `<top (required)>'
+  bin/rails:3:in `load'
+  bin/rails:3:in `<main>'
+
+
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (8.1ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.2ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (21.4ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (31.1ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.6ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (233.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:41:16 +0100
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (105.4ms)
+  Rendered layouts/_header.html.erb (11.7ms)
+  Rendered layouts/_flash_messages.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (319.0ms)
+Completed 200 OK in 2176ms (Views: 2125.3ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:41:22 +0100
+Processing by HomeController#index as */*
+  Rendered home/index.html.erb within layouts/application (16.5ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_flash_messages.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (40.2ms)
+Completed 200 OK in 888ms (Views: 886.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/icon-user-acad13a5919755bb4e9d08a766661d27.png" for 127.0.0.1 at 2015-12-29 16:41:24 +0100
+
+
+Started POST "/users" for 127.0.0.1 at 2015-12-29 16:42:17 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hFPctyjlzMVXjHKCfB0XYIGzJvLzR+1vEKXz5RusK6Wvo9cG5uPqcx0T7nJtstH6fGvm59aiy5emVGaf0XipYA==", "user"=>{"email"=>"philipapbak@gmail.com", "first_name"=>"Philip A", "last_name"=>"Bak", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"SING UP"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (19.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'philipapbak@gmail.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered devise/shared/_links.html.erb (25.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (37.7ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (42.0ms)
+Completed 200 OK in 1112ms (Views: 810.6ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-12-29 16:42:19 +0100
+
+ActionController::RoutingError (No route matches [GET] "/users"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  ahoy_matey (1.1.1) lib/ahoy/engine.rb:20:in `call_with_quiet_ahoy'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `catch'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.4) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.4) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.0) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.0) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<top (required)>'
+  spring (1.2.0) lib/spring/client/rails.rb:27:in `load'
+  spring (1.2.0) lib/spring/client/rails.rb:27:in `call'
+  spring (1.2.0) lib/spring/client/command.rb:7:in `call'
+  spring (1.2.0) lib/spring/client.rb:26:in `run'
+  spring (1.2.0) bin/spring:48:in `<top (required)>'
+  spring (1.2.0) lib/spring/binstub.rb:11:in `load'
+  spring (1.2.0) lib/spring/binstub.rb:11:in `<top (required)>'
+  bin/spring:16:in `require'
+  bin/spring:16:in `<top (required)>'
+  bin/rails:3:in `load'
+  bin/rails:3:in `<main>'
+
+
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (6.4ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (0.2ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (2.8ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.7ms)
+  Rendered /home/admin123/.rvm/gems/ruby-2.1.2@zumin/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (143.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-12-29 16:42:33 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xKZZb22kN2aA8+uhNZVNyCF4jMDIx8lzPvK8vtlXJcfvVlLeo6IR0Mpsd1EkOotS3KBM1e0i74uIAynEE4OnAg==", "user"=>{"first_name"=>"Philip A", "last_name"=>"Bak", "email"=>"philipapbak@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'philipapbak@gmail.com' LIMIT 1
+  [1m[36mUser Exists (11.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`faye_token` = 'db81ba5750c0a70f70279a81a223e756' LIMIT 1[0m
+  [1m[35mSQL (25.8ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `first_name`, `last_name`, `created_at`, `updated_at`, `faye_token`) VALUES ('philipapbak@gmail.com', '$2a$10$Gs09o27sjiEX64cd43v4cuvjysf/RGHNyDcZeiQvrzv6rDJu5V.2i', 'Philip A', 'Bak', '2015-12-29 15:42:33.803173', '2015-12-29 15:42:33.803173', 'db81ba5750c0a70f70279a81a223e756')
+  [1m[36mSQL (25.8ms)[0m  [1mINSERT INTO `delayed_jobs` (`handler`, `queue`, `run_at`, `created_at`, `updated_at`) VALUES ('--- !ruby/object:Delayed::PerformableMethod\nobject: !ruby/class \'Crm::Lead\'\nmethod_name: :send_to_crm\nargs:\n- :first_name: Philip A\n  :last_name: Bak\n  :email: philipapbak@gmail.com\n', 'default', '2015-12-29 15:42:33.975058', '2015-12-29 15:42:33.975437', '2015-12-29 15:42:33.975437')[0m
+  [1m[35m (47.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.3ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2015-12-29 15:42:34.054652', `current_sign_in_at` = '2015-12-29 15:42:34.054652', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2015-12-29 15:42:34.056959' WHERE `users`.`id` = 1
+  [1m[36m (79.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 515ms (ActiveRecord: 220.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:42:34 +0100
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered home/index.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (2.8ms)
+Completed 200 OK in 805ms (Views: 802.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:42:35 +0100
+Processing by HomeController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered home/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (4.6ms)
+Completed 200 OK in 806ms (Views: 803.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:41 +0100
+Processing by UsersController#my_profile as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/my_profile.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (3.3ms)
+Completed 200 OK in 902ms (Views: 875.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:43 +0100
+Processing by UsersController#my_profile as */*
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/my_profile.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (3.2ms)
+Completed 200 OK in 834ms (Views: 826.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:44 +0100
+Processing by UsersController#my_profile as */*
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/my_profile.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (2.9ms)
+Completed 200 OK in 824ms (Views: 813.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:47 +0100
+Processing by UsersController#my_profile as */*
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/my_profile.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (3.7ms)
+Completed 200 OK in 801ms (Views: 797.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:48 +0100
+Processing by UsersController#my_profile as */*
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/my_profile.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_flash_messages.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (3.0ms)
+Completed 200 OK in 781ms (Views: 777.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:49 +0100
+Processing by UsersController#my_profile as */*
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/my_profile.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (2.8ms)
+Completed 200 OK in 904ms (Views: 900.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:51 +0100
+Processing by UsersController#my_profile as */*
+  [1m[35mUser Load (1.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/my_profile.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (6.3ms)
+Completed 200 OK in 805ms (Views: 799.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:52 +0100
+Processing by UsersController#my_profile as */*
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/my_profile.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (3.3ms)
+Completed 200 OK in 821ms (Views: 816.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:53 +0100
+Processing by UsersController#my_profile as */*
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/my_profile.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (2.7ms)
+Completed 200 OK in 894ms (Views: 890.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:54 +0100
+Processing by UsersController#my_profile as */*
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/my_profile.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (10.4ms)
+Completed 200 OK in 888ms (Views: 883.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:55 +0100
+Processing by UsersController#my_profile as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/my_profile.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (3.2ms)
+Completed 200 OK in 897ms (Views: 891.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:57 +0100
+Processing by UsersController#my_profile as */*
+  [1m[36mUser Load (4.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/my_profile.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (4.0ms)
+Completed 200 OK in 949ms (Views: 941.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:42:59 +0100
+Processing by UsersController#my_profile as */*
+  [1m[35mUser Load (1.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/my_profile.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (2.9ms)
+Completed 200 OK in 780ms (Views: 773.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:43:00 +0100
+Processing by UsersController#my_profile as */*
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/my_profile.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (2.9ms)
+Completed 200 OK in 831ms (Views: 827.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:43:01 +0100
+Processing by UsersController#my_profile as */*
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/my_profile.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (4.2ms)
+Completed 200 OK in 869ms (Views: 863.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:43:02 +0100
+Processing by UsersController#my_profile as */*
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/my_profile.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (3.4ms)
+Completed 200 OK in 869ms (Views: 865.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:43:03 +0100
+Processing by UsersController#my_profile as */*
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/my_profile.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (2.7ms)
+Completed 200 OK in 778ms (Views: 771.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:43:04 +0100
+Processing by UsersController#my_profile as */*
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/my_profile.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (5.3ms)
+Completed 200 OK in 817ms (Views: 813.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:43:12 +0100
+Processing by UsersController#my_profile as */*
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/my_profile.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (3.7ms)
+Completed 200 OK in 972ms (Views: 967.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:43:13 +0100
+Processing by UsersController#my_profile as */*
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/my_profile.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (3.6ms)
+Completed 200 OK in 884ms (Views: 878.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:43:14 +0100
+Processing by UsersController#my_profile as */*
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/my_profile.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (3.6ms)
+Completed 200 OK in 1175ms (Views: 1171.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/my_profile" for 127.0.0.1 at 2015-12-29 16:43:15 +0100
+Processing by UsersController#my_profile as */*
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/my_profile.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (6.2ms)
+Completed 200 OK in 1254ms (Views: 1229.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:43:17 +0100
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered home/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (3.3ms)
+Completed 200 OK in 1039ms (Views: 1036.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:43:19 +0100
+Processing by HomeController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered home/index.html.erb within layouts/application (11.1ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (3.2ms)
+Completed 200 OK in 1595ms (Views: 1589.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:43:21 +0100
+Processing by HomeController#index as */*
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered home/index.html.erb within layouts/application (11.8ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (5.4ms)
+Completed 200 OK in 1710ms (Views: 1707.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:43:23 +0100
+Processing by HomeController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered home/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (7.8ms)
+Completed 200 OK in 1102ms (Views: 1098.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:43:24 +0100
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered home/index.html.erb within layouts/application (29.1ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_flash_messages.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (18.8ms)
+Completed 200 OK in 2348ms (Views: 2343.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:43:28 +0100
+Processing by HomeController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered home/index.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_flash_messages.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (4.4ms)
+Completed 200 OK in 1081ms (Views: 1079.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:44:04 +0100
+Processing by HomeController#index as */*
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered home/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (3.0ms)
+Completed 200 OK in 815ms (Views: 809.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:44:05 +0100
+Processing by HomeController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered home/index.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (3.7ms)
+Completed 200 OK in 832ms (Views: 830.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-29 16:44:06 +0100
+Processing by HomeController#index as */*
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered home/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_flash_messages.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (4.5ms)
+Completed 200 OK in 913ms (Views: 911.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/listings?utf8=%E2%9C%93&listing_type=Residential&query=&custom_search%5Bmin_price%5D=5000000&custom_search%5Bmax_price%5D=&autocomplete_form=true&route=&locality=&administrative_area_level_1=" for 127.0.0.1 at 2015-12-29 16:44:13 +0100
+Processing by ListingsController#index as HTML
+  Parameters: {"utf8"=>"✓", "listing_type"=>"Residential", "query"=>"", "custom_search"=>{"min_price"=>"5000000", "max_price"=>""}, "autocomplete_form"=>"true", "route"=>"", "locality"=>"", "administrative_area_level_1"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered listings/index.html.erb within layouts/application (41.9ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (2.8ms)
+Completed 200 OK in 961ms (Views: 958.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/orange_loading-42c599a7c960f7c0b0e8631a3738c432.gif" for 127.0.0.1 at 2015-12-29 16:44:14 +0100
+
+
+Started GET "/listings.json?administrative_area_level_1=&autocomplete_form=true&city=&custom_search=%7B%22min_price%22:%225000000%22,%22max_price%22:%22%22%7D&listing_type=Residential&locality=&page=1&province=&query=&route=&street=&utf8=%E2%9C%93" for 127.0.0.1 at 2015-12-29 16:44:15 +0100
+Processing by ListingsController#index as JSON
+  Parameters: {"administrative_area_level_1"=>"", "autocomplete_form"=>"true", "city"=>"", "custom_search"=>"{\"min_price\":\"5000000\",\"max_price\":\"\"}", "listing_type"=>"Residential", "locality"=>"", "page"=>"1", "province"=>"", "query"=>"", "route"=>"", "street"=>"", "utf8"=>"✓"}
+  [1m[35mUser Load (1.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (42.3ms)[0m  INSERT INTO `ahoy_events` (`id`, `visit_id`, `user_id`, `name`, `properties`, `time`) VALUES (x'a839f3c8d5f049189df775173ceca01a', x'd01f6ae18e834d828efefdd813b44755', 1, 'Advanced Search', '{\"search_attributes\":{\"min_price\":\"5000000\",\"max_price\":\"\"}}', '2015-12-29 15:44:15.119639')
+  [1m[36m (35.7ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 363ms
+
+Errno::ECONNREFUSED - Connection refused - connect(2) for "localhost" port 9200:
+   () home/admin123/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/net/http.rb:879:in `block in connect'
+   () home/admin123/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/timeout.rb:76:in `timeout'
+   () home/admin123/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/net/http.rb:878:in `connect'
+   () home/admin123/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/net/http.rb:863:in `do_start'
+   () home/admin123/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/net/http.rb:852:in `start'
+  rest-client (1.7.2) lib/restclient/request.rb:413:in `transmit'
+  rest-client (1.7.2) lib/restclient/request.rb:176:in `execute'
+  tire (0.6.2) lib/tire/http/client.rb:11:in `get'
+  tire (0.6.2) lib/tire/search.rb:142:in `perform'
+  tire (0.6.2) lib/tire/search.rb:35:in `results'
+  tire (0.6.2) lib/tire/model/search.rb:105:in `search'
+   () home/admin123/railswork/zumin/app/models/listing.rb:36:in `search'
+   () home/admin123/railswork/zumin/app/controllers/listings_controller.rb:100:in `block (2 levels) in index'
+  actionpack (4.2.0) lib/action_controller/metal/mime_responds.rb:216:in `respond_to'
+   () home/admin123/railswork/zumin/app/controllers/listings_controller.rb:73:in `index'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:18:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  ahoy_matey (1.1.1) lib/ahoy/engine.rb:20:in `call_with_quiet_ahoy'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.4) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.6.0) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.0) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+   () home/admin123/railswork/zumin/bin/rails:8:in `<top (required)>'
+  spring (1.2.0) lib/spring/client/rails.rb:27:in `call'
+  spring (1.2.0) lib/spring/client/command.rb:7:in `call'
+  spring (1.2.0) lib/spring/client.rb:26:in `run'
+  spring (1.2.0) bin/spring:48:in `<top (required)>'
+  spring (1.2.0) lib/spring/binstub.rb:11:in `<top (required)>'
+   () home/admin123/railswork/zumin/bin/spring:16:in `<top (required)>'
+   () rails:3:in `<main>'
+
+
+
+Started GET "/listings?utf8=%E2%9C%93&listing_type=Residential&query=&custom_search%5Bmin_price%5D=5000000&custom_search%5Bmax_price%5D=&autocomplete_form=true&route=&locality=&administrative_area_level_1=" for 127.0.0.1 at 2015-12-29 16:44:15 +0100
+Processing by ListingsController#index as */*
+  Parameters: {"utf8"=>"✓", "listing_type"=>"Residential", "query"=>"", "custom_search"=>{"min_price"=>"5000000", "max_price"=>""}, "autocomplete_form"=>"true", "route"=>"", "locality"=>"", "administrative_area_level_1"=>""}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered listings/index.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_flash_messages.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (8.8ms)
+Completed 200 OK in 820ms (Views: 817.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/listings?utf8=%E2%9C%93&listing_type=Residential&query=&custom_search%5Bmin_price%5D=5000000&custom_search%5Bmax_price%5D=&autocomplete_form=true&route=&locality=&administrative_area_level_1=" for 127.0.0.1 at 2015-12-29 16:44:17 +0100
+Processing by ListingsController#index as */*
+  Parameters: {"utf8"=>"✓", "listing_type"=>"Residential", "query"=>"", "custom_search"=>{"min_price"=>"5000000", "max_price"=>""}, "autocomplete_form"=>"true", "route"=>"", "locality"=>"", "administrative_area_level_1"=>""}
+  [1m[36mUser Load (18.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered listings/index.html.erb within layouts/application (21.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (3.7ms)
+Completed 200 OK in 808ms (Views: 786.9ms | ActiveRecord: 18.6ms)
+
+
+Started GET "/listings?utf8=%E2%9C%93&listing_type=Residential&query=&custom_search%5Bmin_price%5D=5000000&custom_search%5Bmax_price%5D=&autocomplete_form=true&route=&locality=&administrative_area_level_1=" for 127.0.0.1 at 2015-12-29 16:44:19 +0100
+Processing by ListingsController#index as */*
+  Parameters: {"utf8"=>"✓", "listing_type"=>"Residential", "query"=>"", "custom_search"=>{"min_price"=>"5000000", "max_price"=>""}, "autocomplete_form"=>"true", "route"=>"", "locality"=>"", "administrative_area_level_1"=>""}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered listings/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (6.0ms)
+Completed 200 OK in 955ms (Views: 952.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/listings?utf8=%E2%9C%93&listing_type=Residential&query=&custom_search%5Bmin_price%5D=5000000&custom_search%5Bmax_price%5D=&autocomplete_form=true&route=&locality=&administrative_area_level_1=" for 127.0.0.1 at 2015-12-29 16:44:20 +0100
+Processing by ListingsController#index as */*
+  Parameters: {"utf8"=>"✓", "listing_type"=>"Residential", "query"=>"", "custom_search"=>{"min_price"=>"5000000", "max_price"=>""}, "autocomplete_form"=>"true", "route"=>"", "locality"=>"", "administrative_area_level_1"=>""}
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered listings/index.html.erb within layouts/application (13.2ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (2.7ms)
+Completed 200 OK in 984ms (Views: 979.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/listings?utf8=%E2%9C%93&listing_type=Residential&query=&custom_search%5Bmin_price%5D=5000000&custom_search%5Bmax_price%5D=&autocomplete_form=true&route=&locality=&administrative_area_level_1=" for 127.0.0.1 at 2015-12-29 16:44:21 +0100
+Processing by ListingsController#index as */*
+  Parameters: {"utf8"=>"✓", "listing_type"=>"Residential", "query"=>"", "custom_search"=>{"min_price"=>"5000000", "max_price"=>""}, "autocomplete_form"=>"true", "route"=>"", "locality"=>"", "administrative_area_level_1"=>""}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered listings/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_flash_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (2.7ms)
+Completed 200 OK in 812ms (Views: 809.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/listings?utf8=%E2%9C%93&listing_type=Residential&query=&custom_search%5Bmin_price%5D=5000000&custom_search%5Bmax_price%5D=&autocomplete_form=true&route=&locality=&administrative_area_level_1=" for 127.0.0.1 at 2015-12-29 16:44:22 +0100
+Processing by ListingsController#index as */*
+  Parameters: {"utf8"=>"✓", "listing_type"=>"Residential", "query"=>"", "custom_search"=>{"min_price"=>"5000000", "max_price"=>""}, "autocomplete_form"=>"true", "route"=>"", "locality"=>"", "administrative_area_level_1"=>""}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered listings/index.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_flash_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (2.9ms)
+Completed 200 OK in 848ms (Views: 845.5ms | ActiveRecord: 0.8ms)

@@ -1,0 +1,845 @@
+<div ng-controller="ListingsCtrl">
+  <div class="bg-grey"  ng-init="loadListing(<%= params[:id] %>)">
+  	<div class="container">
+      	<div class="row">
+          	<div class="col-sm-9">
+              	<ul class="breadcrumb">
+                    <li><%= link_to "POPULAR CITIES", listings_path() %></li>
+                    <li><%= link_to @listing.province.try(:upcase), listings_path(province: @listing.province) %></li>
+                    <li><%= link_to @listing.city.try(:upcase), listings_path(province: @listing.province, city: @listing.city) %></li>
+                    <li><%= link_to @listing.street.try(:upcase), listings_path(city: @listing.city, street: @listing.street) %></li>
+                    <li class="active"><%= @listing.address.try(:upcase) %></li>
+                </ul>
+              </div>
+              <div class="col-sm-3">
+              	<ul class="list-menuicon">
+                  	<li><a href="#"><span class="fa fa-home"></span></a></li>
+                  	<li><a href="#"><span class="fa fa-bell-o"></span></a></li>
+                  	<li><a href="#"><span class="fa fa-heart-o"></span></a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br>
+  <div class="container">
+  	<div class="row">
+      	<div class="col-sm-4">
+          	<div class="row text-center mb20">
+              	<div class="col-sm-5">
+                  	<div class="price-orange">${{listing.price}}</div>
+                  </div>
+                  <div class="col-sm-7">
+                  	<div class="row">
+                          <div class="col-xs-6">
+                          	<div class="mh50">
+                                  <div class="number text-primary">$1,543</div>
+                                  <div class="text">MOUNTHLY</div>
+                              </div>
+                          </div>
+                          <div class="col-xs-6">
+                          	<div class="mh50">
+                              <div class="number text-primary">$1,575</div>
+                              <div class="text">CASH BACK</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          	<div class="property-caption mb20">
+                  <h3>{{listing.city | uppercase}}</h3>
+                  <div class="map map-01">
+                      <address>{{listing.address}}</address>
+                      <div>({{listing.postal_code}})</div>
+                  </div>
+                  <div class="row text-center">
+                      <div class="col-xs-4">
+                          <div class="number">{{listing.bedrooms}}</div>
+                          <div class="text">BEDS</div>
+                      </div>
+                      <div class="col-xs-4">
+                          <div class="number">{{listing.bathrooms}}</div>
+                          <div class="text">BATHS</div>
+                      </div>
+                      <div class="col-xs-4">
+                          <div class="number">{{listing.sqft || '--'}}</div>
+                          <div class="text">SQ. FT.</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+              	<div class="col-sm-6">
+                  	<button type="button" class="btn btn-border-primary btn-block">BOOK A VIEWING</button>
+                  </div>
+              	<div class="col-sm-6">
+                  	<button type="button" class="btn btn-border-primary btn-block">TOUR THE HOME</button>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-8">
+          	<div id="carousel" class="carousel slide" data-ride="carousel">
+                	<div class="carousel-inner" role="listbox">
+                    <div ng-class="{active : $first, item : true}" ng-repeat="img in listing.images">
+                    		<img ng-src="{{img}}" alt="" onerror="this.onerror=null;this.src='/missing-image.png';">
+                  	</div>
+                	</div>
+
+                	<a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                  	<span class="left-arrow-white"></span>
+                	</a>
+                	<a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                  	<span class="right-arrow-white"></span>
+                	</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br>
+
+  <div class="bg-grey pt30">
+  	<div class="container">
+      	<h2 class="text-center">{{listing.address | uppercase}}</h2>
+          <div class="bt3">
+          	<div class="row">
+              	<div class="col-sm-8">
+                      <ul class="nav nav-pills">
+                          <li class="active"><a href="#">Property Details</a></li>
+                          <li><a href="#">Location</a></li>
+                          <li><a href="#">Rooms Details</a></li>
+                          <li><a href="#">Utilities</a></li>
+                          <li><a href="#">Nearest Places</a></li>
+                          <li><a href="#">Mortgages</a></li>
+                      </ul>
+              	</div>
+                  <div class="col-sm-4">
+                  	<div class="menu-right">
+                      	<a href="#">Near Me Properties</a>
+                          <div class="divider"></div>
+                          <a href="#"><span class="fa fa-arrow-left"></span></a>
+                          <a href="#"><span class="fa fa-arrow-right"></span></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+   	</div>
+      <div class="line2"></div>
+      <div class="container">
+      	<div class="box-white">
+          	<div class="heading" data-toggle="collapse" data-target="#property-detail">
+              	<h3>PROPERTY DETAILS</h3>
+                  <span class="fa fa-minus"></span>
+              </div>
+              <div class="body collapse in" id="property-detail">
+              	<div class="row">
+                  	<div class="col-sm-6">
+                          <p>{{listing.description}}</p>
+                          <p class="fz11"><span class="text-muted">Added to our website {{listing.created_at|timeago}}</span><br>
+                          Viewed <ng-pluralize count="listing.view_count" when="{'1': '1 time', 'other': '{} times'}"></ng-pluralize></p>
+                         <p class="text-semi fz11"> MLS®: {{listing.mls}}</p>
+                  	</div>
+                      <div class="col-sm-6">
+                      	<div class="box-grey">
+                          	<div class="heading-orange">
+                              	<h4>QUICK FACTS</h4>
+                              </div>
+                              <table class="table table-nob">
+                              <tbody>
+                              	<tr>
+                                  	<th><span class="fa fa-dollar text-primary"></span> Taxes:</th>
+                                  	<td class="text-right">$2,866.52</td>
+                                  	<th><span class="fa fa-compass text-primary"></span> Fronting</th>
+                                  	<td class="text-right">N</td>
+                                  </tr>
+                                  <tr>
+                                  	<th><span class="fa fa-calendar-o text-primary"></span> Poss. Date</th>
+                                      <td class="text-right">30 Days</td>
+                                  	<th><span class="fa fa-map-marker text-primary"></span> Lot Size</th>
+                                      <td class="text-right">100 x 30</td>
+                                  </tr>
+                                  <tr>
+                                  	<th><span class="fa fa-clock-o text-primary"></span> Age</th>
+                                      <td class="text-right">5 years</td>
+                                  	<th><span class="fa fa-car text-primary"></span> Parking Space</th>
+                                      <td class="text-right">3</td>
+                                  </tr>
+                              </tbody>
+                              </table>
+                              <div class="text-center"><a href="#" class="btn btn-primary btn-w250">BOOK A TOUR</a></div>
+                          </div>
+                      	<p class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, <br>sed diam nonummy nibh euismod tincidunt ut.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="box-white">
+          	<div class="heading" data-toggle="collapse" data-target="#location">
+              	<h3>LOCATION</h3>
+                  <span class="fa fa-minus"></span>
+              </div>
+              <div class="body collapse in" id="location">
+              	<div class="row">
+                  	<div class="col-sm-6">
+                      <%= image_tag "img-14.jpg", class: "img-responsive w100" %>
+                  	</div>
+                      <div class="col-sm-6">
+                        <%= image_tag "img-15.jpg", class: "img-responsive w100" %>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="box-white">
+          	<div class="heading" data-toggle="collapse" data-target="#room-details">
+              	<h3>ROOM DETAILS</h3>
+                  <span class="fa fa-minus"></span>
+              </div>
+              <div class="body collapse in" id="room-details">
+              	<div class="row">
+                  	<div class="col-sm-6">
+                      	<div class="text-semi mb10">Ground Level</div>
+                          <div class="box-grey">
+                          <table class="table table-nob table-sm">
+                          <tbody>
+                          	<tr>
+                              	<th>Living</th>
+                                  <td>Hardwood Floor, Combined w/dining. Large window</td>
+                                  <td class="text-right text-primary">3.4 x 7.34</td>
+                              </tr>
+                          	<tr>
+                              	<th>Dining</th>
+                                  <td>Hardwood Floor, Combined w/Living</td>
+                                  <td class="text-right text-primary">2.91 x 7.34</td>
+                              </tr>
+                          	<tr>
+                              	<th>Kitchen</th>
+                                  <td>Winyl Floor, Ceramic Back Splash</td>
+                                  <td class="text-right text-primary">2.93x 3.61</td>
+                              </tr>
+                          	<tr>
+                              	<th>Master</th>
+                                  <td>Hardwood Floor, Closet</td>
+                                  <td class="text-right text-primary">2.93 x 2.59</td>
+                              </tr>
+                          	<tr>
+                              	<th>2nd Br</th>
+                                  <td>Hardwood Floor, Closet</td>
+                                  <td class="text-right text-primary">2.65 x 2.83</td>
+                              </tr>
+                          </tbody>
+                          </table>
+                          </div>
+                          <div class="text-semi mb10">Basement Level</div>
+                          <div class="box-grey">
+                          <table class="table table-nob table-sm">
+                          <tbody>
+                          	<tr>
+                              	<th>Rec</th>
+                                  <td>Ceramic Floor</td>
+                                  <td class="text-right text-primary">3.4 x 7.34</td>
+                              </tr>
+                          	<tr>
+                              	<th>Kitchen</th>
+                                  <td>Vinyl Floor</td>
+                                  <td class="text-right text-primary">2.91 x 7.34</td>
+                              </tr>
+                          	<tr>
+                              	<th>Br</th>
+                                  <td>Ceramic Floor</td>
+                                  <td class="text-right text-primary">2.93x 3.61</td>
+                              </tr>
+                          </tbody>
+                          </table>
+                          </div>
+                  	</div>
+                      <div class="col-sm-6">
+                      	<div id="carousel1" class="carousel slide" data-ride="carousel">
+                              <div class="carousel-inner" role="listbox">
+                                  <div class="item active">
+                                    <%= image_tag "img-16.jpg" %>
+                                  </div>
+                                  <div class="item">
+                                      <%= image_tag "img-16.jpg" %>
+                                  </div>
+                                  <div class="item">
+                                      <%= image_tag "img-16.jpg" %>
+                                  </div>
+                              </div>
+
+                              <a class="left carousel-control" href="#carousel1" role="button" data-slide="prev">
+                                  <span class="left-arrow-white"></span>
+                              </a>
+                              <a class="right carousel-control" href="#carousel1" role="button" data-slide="next">
+                                  <span class="right-arrow-white"></span>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="box-white">
+          	<div class="heading" data-toggle="collapse" data-target="#utilities">
+              	<h3>UTILITIES</h3>
+                  <span class="fa fa-minus"></span>
+              </div>
+              <div class="body collapse in" id="utilities">
+              	<div class="row">
+                  	<div class="col-sm-6">
+                      	<div class="box-grey">
+                          <table class="table table-nob table-sm">
+                          <tbody>
+                          	<tr>
+                              	<th>Gas</th>
+                                  <td class="text-right text-primary">Yes</td>
+                              </tr>
+                          	<tr>
+                              	<th>Sewers</th>
+                                  <td class="text-right text-primary">Yes</td>
+                              </tr>
+                          	<tr>
+                              	<th>Hydro</th>
+                                  <td class="text-right text-primary">Yes</td>
+                              </tr>
+                          	<tr>
+                              	<th>Green Info</th>
+                                  <td class="text-right text-primary">Yes</td>
+                              </tr>
+                          	<tr>
+                              	<th>Water Supply</th>
+                                  <td class="text-right">Municipal</td>
+                              </tr>
+                          	<tr>
+                              	<th>Heat</th>
+                                  <td class="text-right">Gas Forced Air</td>
+                              </tr>
+                          	<tr>
+                              	<th>Energy Certified</th>
+                                  <td class="text-right">3</td>
+                              </tr>
+                          	<tr>
+                              	<th>Cert. Level</th>
+                                  <td class="text-right">Energy Star</td>
+                              </tr>
+                          </tbody>
+                          </table>
+                          </div>
+                  	</div>
+                      <div class="col-sm-6">
+                      	<div id="carousel2" class="carousel slide" data-ride="carousel">
+                              <div class="carousel-inner" role="listbox">
+                                  <div class="item active">
+                                    <%= image_tag "img-17.jpg" %>
+                                  </div>
+                                  <div class="item">
+                                    <%= image_tag "img-17.jpg" %>
+                                  </div>
+                                  <div class="item">
+                                    <%= image_tag "img-17.jpg" %>
+                                  </div>
+                              </div>
+
+                              <a class="left carousel-control" href="#carousel2" role="button" data-slide="prev">
+                                  <span class="left-arrow-white"></span>
+                              </a>
+                              <a class="right carousel-control" href="#carousel2" role="button" data-slide="next">
+                                  <span class="right-arrow-white"></span>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="box-white">
+          	<div class="heading" data-toggle="collapse" data-target="#nearest-places">
+              	<h3>NEAREST PLACES</h3>
+                  <span class="fa fa-minus"></span>
+              </div>
+              <div class="body collapse in" id="nearest-places">
+              	<div class="row">
+                  	<div class="col-sm-6">
+                      	<div class="row">
+                          	<div class="col-sm-6">
+                              	<div class="box-grey mb10">
+                                  	<div class="media">
+                                      	<div class="media-left">
+                                          <%= image_tag "icon-walk.png", class: "icon-walk" %>
+                                         	</div>
+                                          <div class="media-body">
+                                          	<div class="walk-score">55</div>
+                                              WALKSCORE
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <a href="#" class="btn btn-primary btn-xs btn-block">MORE ABOUT THE NEIGHBOURHOOD</a>
+                              </div>
+                          	<div class="col-sm-6">
+                              	<table class="table table-nob">
+                                  <tbody>
+                                      <tr>
+                                          <th>Schools</th>
+                                          <td class="text-right"><a href="#">VIEW</a></td>
+                                      </tr>
+                                      <tr>
+                                          <th>Transit</th>
+                                          <td class="text-right"><a href="#">VIEW</a></td>
+                                      </tr>
+                                      <tr>
+                                          <th>Grocery Stores</th>
+                                          <td class="text-right"><a href="#">VIEW</a></td>
+                                      </tr>
+                                      <tr>
+                                          <th>Religious Institutions</th>
+                                          <td class="text-right"><a href="#">VIEW</a></td>
+                                      </tr>
+                                  </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet tellus velit. Pellentesque quis condimentum massa, a condimentum metus. Nullam placerat eget turpis id ullamcorper. Vivamus sed elit in massa dignissim vehicula vitae vel augue. Nulla posuere, mauris eget sollicitudin scelerisque, nisi lorem ullamcorper lectus, ullamcorper fermentum purus quam ac quam. Nam est neque, porttitor a condimentum. 	</p>
+
+                          <p>Duis eu metus semper, finibus est nec, varius elit. Aliquam turpis quam, iaculis id faucibus ut, varius non lacus. Nulla a egestas elit, quis pulvinar nisi.</p>
+                  	</div>
+                      <div class="col-sm-6">
+                      	<div id="carousel3" class="carousel slide" data-ride="carousel">
+                              <div class="carousel-inner" role="listbox">
+                                  <div class="item active">
+                                    <%= image_tag "img-18.jpg" %>
+                                  </div>
+                                  <div class="item">
+                                    <%= image_tag "img-18.jpg" %>
+                                  </div>
+                                  <div class="item">
+                                    <%= image_tag "img-18.jpg" %>
+                                  </div>
+                              </div>
+
+                              <a class="left carousel-control" href="#carousel3" role="button" data-slide="prev">
+                                  <span class="left-arrow-white"></span>
+                              </a>
+                              <a class="right carousel-control" href="#carousel3" role="button" data-slide="next">
+                                  <span class="right-arrow-white"></span>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="box-white">
+          	<div class="heading" data-toggle="collapse" data-target="#mortages">
+              	<h3>MORTAGES</h3>
+                  <span class="fa fa-minus"></span>
+              </div>
+              <div class="body collapse in" id="mortages">
+              	<div class="row">
+                  	<div class="col-sm-6">
+                      	<div class="form-group">
+                          	<label for="">Home Price</label>
+                          	<input type="text" class="form-control" id="" placeholder="">
+                        	</div>
+                      	<div class="form-group">
+                          	<label for="">Down Payment</label>
+                          	<input type="text" class="form-control" id="" placeholder="">
+                        	</div>
+                          <div class="form-group">
+                          <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary active">
+                              <input type="radio" name="options" id="option1" autocomplete="off" checked> $
+                            </label>
+                            <label class="btn btn-primary">
+                              <input type="radio" name="options" id="option2" autocomplete="off"> %
+                            </label>
+                          </div>
+                          </div>
+                          <div class="row">
+                          	<div class="col-sm-3">
+                              	<div class="form-group">
+                                      <label for="">Rate</label>
+                                      <div class="input-group">
+                                        <input type="text" class="form-control">
+                                        <span class="input-group-addon">%</span>
+                                      </div>
+                                  </div>
+                              </div>
+                          	<div class="col-sm-3">
+                              	<div class="form-group">
+                                      <label for="">Amortization</label>
+                                      <div class="input-group">
+                                        <input type="text" class="form-control">
+                                        <span class="input-group-addon">YEARS</span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      	<p class="fz10 text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet tellus velit. Pellentesque quis condimentum massa, a condimentum metus. Nullam placerat eget turpis id ullamcorper.  	</p>
+                  	</div>
+                      <div class="col-sm-6">
+                      	<div class="box-grey">
+                          	<table class="table table-b0 table-sm">
+                              <tbody>
+                              	<tr>
+                                  	<th>Mortgage Amount</th>
+                                      <td class="text-right">$275,920</td>
+                                  </tr>
+                              	<tr>
+                                  	<th>Down Payment</th>
+                                      <td class="text-right">$68,980</td>
+                                  </tr>
+                              </tbody>
+                              </table>
+                          </div>
+                      	<div class="box-grey">
+                          	<table class="table table-b0 table-sm">
+                              <tbody>
+                              	<tr>
+                                  	<th>Maintenance</th>
+                                      <td class="text-right">$0</td>
+                                  </tr>
+                                  <tr>
+                                  	<th>Taxes</th>
+                                      <td class="text-right">$2,867</td>
+                                  </tr>
+                                  <tr>
+                                  	<th>Mortgage Payent</th>
+                                      <td class="text-right">$1,304</td>
+                                  </tr>
+                              </tbody>
+                              <tfoot>
+                              	<tr>
+                                  	<th>Monthly Payment</th>
+                                  	<th class="text-right">$1,543</th>
+                                  </tr>
+                              </tfoot>
+                              </table>
+                          </div>
+                          <a href="#" class="btn btn-primary btn-w250">GET PREQUALIFIED</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      	<div class="row">
+          	<div class="col-sm-4">
+              	<div class="property-item">
+                  	<figure><%= image_tag "img-04.jpg" %></figure>
+                      <div class="property-attr">
+                      	<div class="row">
+                          	<div class="col-xs-6">
+                              	<div class="mls">MLS&reg; #9387</div>
+                              </div>
+                          	<div class="col-xs-6">
+                              	<div class="price"><span>FROM</span> $499,900</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="property-caption">
+                      	<h3>MISSISSAUGA</h3>
+                          <div class="map map-01">
+                          	<address>#327 300 <br>Manitoba St.</address>
+  					<div>(M8Y 4G9)</div>
+                          </div>
+                          <div class="row text-center">
+                          	<div class="col-xs-4">
+                              	<div class="number">3</div>
+                                  <div class="text">BEDS</div>
+                              </div>
+                          	<div class="col-xs-4">
+                              	<div class="number">2</div>
+                                  <div class="text">BATHS</div>
+                              </div>
+                          	<div class="col-xs-4">
+                              	<div class="number">987</div>
+                                  <div class="text">SQ. FT.</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-4">
+              	<div class="property-item">
+                  	<figure><%= image_tag "img-05.jpg" %></figure>
+                      <div class="property-attr">
+                      	<div class="row">
+                          	<div class="col-xs-6">
+                              	<div class="mls">MLS&reg; #9348823</div>
+                              </div>
+                          	<div class="col-xs-6">
+                              	<div class="price"><span>FROM</span> $299,900</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="property-caption">
+                      	<h3>MILTON</h3>
+                          <div class="map map-02">
+                          	<address>#354 <br>Ashbrook Ct.</address>
+  					<div>(L9T 2K7)</div>
+                          </div>
+                          <div class="row text-center">
+                          	<div class="col-xs-4">
+                              	<div class="number">2</div>
+                                  <div class="text">BEDS</div>
+                              </div>
+                          	<div class="col-xs-4">
+                              	<div class="number">2</div>
+                                  <div class="text">BATHS</div>
+                              </div>
+                          	<div class="col-xs-4">
+                              	<div class="number">526</div>
+                                  <div class="text">SQ. FT.</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-4">
+              	<div class="property-item">
+                  	<figure><%= image_tag "img-06.jpg" %></figure>
+                      <div class="property-attr">
+                      	<div class="row">
+                          	<div class="col-xs-6">
+                              	<div class="mls">MLS&reg; #954892</div>
+                              </div>
+                          	<div class="col-xs-6">
+                              	<div class="price"><span>FROM</span> $5,499,900</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="property-caption">
+                      	<h3>CITY OF TORONTO</h3>
+                          <div class="map map-03">
+                          	<address>#245 Davisville Ave. <br>High-rise Condo for Sale</address>
+  					<div>(M8Y 4G9)</div>
+                          </div>
+                          <div class="row text-center">
+                          	<div class="col-xs-4">
+                              	<div class="number">4</div>
+                                  <div class="text">BEDS</div>
+                              </div>
+                          	<div class="col-xs-4">
+                              	<div class="number">3</div>
+                                  <div class="text">BATHS</div>
+                              </div>
+                          	<div class="col-xs-4">
+                              	<div class="number">1,578</div>
+                                  <div class="text">SQ. FT.</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<% if false %>
+<div ng-controller="ListingsCtrl">
+  <div class="container" ng-init="loadListing(<%= params[:id] %>)">
+      <ol class="breadcrumb top-margin-20">
+          <li><%= link_to "All Cities", listings_path() %></li>
+          <li><%= link_to @listing.province, listings_path(province: @listing.province) %></li>
+          <li><%= link_to @listing.city, listings_path(province: @listing.province, city: @listing.city) %></li>
+          <li><%= link_to @listing.street, listings_path(city: @listing.city, street: @listing.street) %></li>
+          <li class="active"><%= @listing.address %></li>
+      </ol>
+      <div class="house-detail">
+          <div class="row">
+              <div class="col-md-3 col-sm-4">
+                  <h3>{{listing.full_address}}</h3>
+                  <div class="price">${{listing.price}}</div>
+                  <p ng-show="listing.sale">Estimated <span class="text-danger">$999</span>/month</p>
+                  <ul class="list-group">
+                    <% if user_signed_in? %>
+                      <li class="list-group-item">
+                        <% if current_user.favourites.for_listing(@listing).present? %>
+                          Favourited!
+                        <% else %>
+                          <a id="add_to_favourites" href="" ng-click="add_favourite(listing.class_name, listing.id)">Add to Favourites</a>
+                        <% end %>
+                      </li>
+                    <% end %>
+                    <li class="list-group-item">
+                      <span class="amount">{{listing.bedrooms}}</span>
+                      <ng-pluralize count="listing.bedrooms" when="{'1': 'BEDROOM', 'other': 'BEDROOMS'}"></ng-pluralize>
+                    </li>
+                    <li class="list-group-item">
+                      <span class="amount">{{listing.bathrooms}}</span>
+                      <ng-pluralize count="listing.bedrooms" when="{'1': 'BATHROOM', 'other': 'BATHROOMS'}"></ng-pluralize>
+                    </li>
+                  </ul>
+                  <p>Added to our website {{listing.created_at|timeago}}</p>
+                  <p>Viewed <ng-pluralize count="listing.view_count" when="{'1': '1 time', 'other': '{} times'}"></ng-pluralize></p>
+                  <p class="text-semibold">MLS®: {{listing.mls}}</p>
+                  <p class="style7">Directions</p>
+                  <p><%= image_tag "02_22.png" %></p>
+                  <br>
+              </div>
+              <div class="col-md-5 col-sm-8">
+                  <div id="carousel" class="carousel slide" data-ride="carousel">
+                    	<div class="carousel-inner" role="listbox">
+                        <div ng-class="{active : $first, item : true}" ng-repeat="img in listing.images">
+                        		<img ng-src="{{img}}" alt="" onerror="this.onerror=null;this.src='/missing-image.png';">
+                      	</div>
+                    	</div>
+                    	<ol class="carousel-indicators carousel-indicators-thumb clearfix gallery-thumbnails">
+                      	<li data-target="#carousel" data-slide-to="{{$index}}" ng-class="{active : $first}" ng-repeat="img in listing.images">
+                          <img ng-src="{{img}}" alt="" onerror="this.onerror=null;this.src='/missing-image.png';">
+                        </li>
+                    	</ol>
+                  </div>
+  		            <p>{{listing.description}}</p>
+                  <hr>
+                  <div class="row">
+                  	<div class="col-xs-6">
+                      	<p><a href="#" class="btn btn-danger btn-block">REQUEST INFO</a></p>
+                      </div>
+                  	<div class="col-xs-6">
+                      	<p><a href="#" class="btn btn-danger btn-block">REQUEST VIEWING</a></p>
+                      </div>
+                  </div>
+                  <table class="table table-desc">
+                  <tbody>
+                  	<tr>
+                      	<th>Type:</th>
+                      	<td class="text-right">{{listing.type}}</td>
+                      </tr>
+                  	<tr>
+                      	<th>Style:</th>
+                      	<td class="text-right">{{listing.style}}</td>
+                      </tr>
+                  	<tr>
+                      	<th>Maintenace:</th>
+                      	<td class="text-right">$557</td>
+                      </tr>
+                  	<tr>
+                      	<th>City:</th>
+                      	<td class="text-right">{{listing.city}}</td>
+                      </tr>
+                  	<tr>
+                      	<th>Demographics:</th>
+                      	<td class="text-right">Alderwood</td>
+                      </tr>
+                  </tbody>
+                  </table>
+                  <h4 class="title1">Property Details</h4>
+                  <h5 class="title1">Utilities</h5>
+                  <table class="table table-desc">
+                  <tbody>
+                  	<tr>
+                      	<th>Heat:</th>
+                      	<td class="text-right">{{listing.heating}}</td>
+                      </tr>
+                  	<tr>
+                      	<th>Water + supply:</th>
+                      	<td class="text-right">{{listing.water}}</td>
+                      </tr>
+                  	<tr>
+                      	<th>Heating Fuel:</th>
+                      	<td class="text-right">{{listing.fuel}}</td>
+                      </tr>
+                  </tbody>
+                  </table>
+                  <% if @listing.fields_to_show.present? %>
+                    <h5 class="title1">Additional</h5>
+                    <table class="table table-desc">
+                      <tbody>
+                        <% JSON.parse(@listing.fields_to_show).each do |f| %>
+                        	<tr>
+                          	<th><%= RETS_FIELDS[f] %>:</th>
+                          	<td class="text-right"><%= @listing.send(f) %></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  <% end %>
+                  <h4 class="title1">Request Information</h4>
+                  <center id="request_info_spinner" class="hide"><i class="fa fa-spinner fa-spin fa-3x"></i></center>
+                  <div class="alert alert-success hide" id="request_info_success">
+                    Thank you for your interest!
+                  </div>
+                  <div class="alert alert-danger hide" id="request_info_error">
+                    Something went wrong. Please reload the page and try again.
+                  </div>
+                  <form name="request_form" novalidate ng-submit="request_form.$valid && submit_request_form()" id="request_info_form">
+                  	<div class="row">
+                      	<div class="col-sm-6">
+                          	<div class="form-group" ng-class="{ 'has-error': request_submitted && request_form.first_name.$invalid }">
+                              	<input name="first_name" ng-model="request.first_name" type="text" class="form-control" placeholder="First Name" required ng-init="request.first_name='<%= current_user.try(:first_name) %>'">
+                                <span ng-show="request_submitted && request_form.first_name.$invalid">can't be blank</span>
+                              </div>
+                          </div>
+                      	<div class="col-sm-6">
+                          	<div class="form-group" ng-class="{ 'has-error': request_submitted && request_form.last_name.$invalid }">
+                              	<input name="last_name" ng-model="request.last_name" type="text" class="form-control" placeholder="Last Name" required ng-init="request.last_name='<%= current_user.try(:last_name) %>'">
+                                <span ng-show="request_submitted && request_form.last_name.$invalid">can't be blank</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="form-group" ng-class="{ 'has-error': request_submitted && request_form.email.$invalid }">
+                          <input name="email" ng-model="request.email" type="email" class="form-control" placeholder="Email Address" required ng-init="request.email='<%= current_user.try(:email) %>'">
+                          <span ng-show="request_submitted && request_form.email.$invalid">invalid email address</span>
+                      </div>
+                      <div class="form-group">
+                          <input ng-model="request.phone_number" type="text" class="form-control" placeholder="Phone Number">
+                      </div>
+                      <input type="submit" class="btn btn-danger btn-lg" ng-click="request_submitted = true;" value="SEND"/>
+                  </form>
+                  <br><br>
+              </div>
+              <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-4">
+              	<div class="panel panel-default">
+                  	<div class="panel-heading">
+                      	<div class="row">
+                          	<div class="col-sm-6">
+                      			<h3 class="panel-title">{{listing.city}} ({{listing.province}})</h3>
+  						{{listing.city_listing_count}} Homes
+                          	</div>
+                              <div class="col-sm-6">
+                              	<a href="#" class="btn btn-danger">Recommended Agent</a>
+                              </div>
+                          </div>
+                    	</div>
+                    	<div class="panel-body">
+                          <div id="house-scroll" class="nano">
+                            <div class="nano-content">
+                              <div class="house-media" ng-repeat="r_listing in related_listings">
+                                <div class="media">
+                                  <div class="media-left">
+                                    <img ng-src="http://zumin.s3.amazonaws.com/listing_photos/{{r_listing._type}}_{{r_listing.id}}_0.jpg" onerror="this.onerror=null;this.src='/missing-image.png';">
+                                    <span class="label label-danger label-new">NEW</span>
+                                    <span class="label label-primary label-photos"><ng-pluralize count="r_listing.image_count" when="{'1': '1 photo', 'other': '{} photos'}"></ng-pluralize></span>
+
+                                  </div>
+                                  <div class="media-body">
+                                    <h4><a target="_self" href="/listings/{{r_listing.id}}">{{r_listing.addr}}, {{r_listing.municipality}}</a></h4>
+                                    <p>${{r_listing.lp_dol | number}}<br> <ng-pluralize count="r_listing.br" when="{'1': '1 bed', 'other': '{} beds'}"></ng-pluralize>, <ng-pluralize count="r_listing.bath_tot" when="{'1': '1 bath', 'other': '{} baths'}"></ng-pluralize></p>
+                                  </div>
+                                </div>
+                              </div>
+                          	</div>
+                          </div>
+                    	</div>
+                    	<div class="panel-footer">
+                      	<div class="clearfix">
+                      	<div class="page-info">Page {{current_page}} of <%= (@listing.city_listing_count / 10).ceil %></div>
+                              <div class="nav-right1 clearfix">
+                                  <a href="" ng-click="load_related_listings(current_page-1)"><span class="fa fa-caret-left"></span></a>
+                                  <a href="" ng-click="load_related_listings(current_page+1)"><span class="fa fa-caret-right"></span></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <% if logged_in? %>
+  <script>
+  $(window).unload(function() {
+    $.ajax({
+      type: "POST",
+      url: "/listings/<%= @listing.id %>/leave_page",
+      data: "class_name=<%= @listing.class_name %>",
+      async : false
+    });
+  });
+  </script>
+  <% end %>
+</div>
+<% end %>

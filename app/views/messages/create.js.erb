@@ -1,0 +1,3 @@
+<% publish_to "/messaging_#{@recipient.faye_token}" do %>
+  $("#received_messages").prepend("<li><%= j @receipt.to_json %></li>");
+<% end %>

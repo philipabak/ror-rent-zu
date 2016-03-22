@@ -1,0 +1,38 @@
+# 2015-12-29 16:44:15:434 [HEAD] ("listings")
+#
+curl -I "http://localhost:9200/listings"
+
+# 2015-12-29 16:44:15:434 [Errno::ECONNREFUSED]
+
+# 2015-12-29 16:44:15:470 [_search] (["listings"])
+#
+curl -X GET 'http://localhost:9200/listings/listing/_search?size=50000&pretty' -d '{
+  "filter": {
+    "and": [
+      {
+        "missing": {
+          "field": "deleted_at"
+        }
+      },
+      {
+        "term": {
+          "listing_type": "residential"
+        }
+      },
+      {
+        "range": {
+          "lp_dol": {
+            "gte": 5000000
+          }
+        }
+      }
+    ]
+  },
+  "size": 50000,
+  "fields": [
+
+  ]
+}'
+
+# 2015-12-29 16:44:15:473 [N/A] (N/A msec)
+

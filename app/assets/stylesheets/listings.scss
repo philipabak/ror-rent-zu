@@ -1,0 +1,116 @@
+// Place all the styles related to the listings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.gallery-thumbnails {
+  text-align: left;
+  img {
+    height:40px;
+    margin-bottom: 10px;
+  }
+}
+
+.media {
+  img {
+    height:100px;
+  }
+}
+
+#house-scroll {
+  overflow: scroll;
+}
+
+.house-item {
+  img {
+    width: 280px;
+    height: 190px;
+  }
+}
+
+.grey-bg {
+  background: #eee;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0px;
+}
+
+.custom-infobox {
+  width:400px;
+  background: #fff;
+  border-bottom:1px solid #ccc;
+  padding:15px;
+  font-size: 13px;
+  .media-left{padding-right:20px;position:relative;}
+  h4{font-size: 16px;margin-top:0;font-family: 'proxima_nova_rgbold';}
+  h4 a{color:#333;}
+  .media {margin-top:0;}
+  .media, .house-media .media-body{overflow:visible;}
+  .infobox-close { position: absolute; top:3px; right:3px;}
+}
+
+.top-margin-20 {
+  margin-top: 20px;
+}
+.admin_table {
+  td {
+    vertical-align: middle !important;
+    img {
+      width: 70%;
+    }
+  }
+}
+.datetime.form-control {
+  width:30%;
+  display:inline;
+}
+label.datetime.optional.control-label {
+  display: block;
+}
+.has-error {
+  color: #a94442;
+}
+.MapPushpinBase {
+  img {
+    width:100%;
+    height:100%;
+  }
+  div {
+    font-size:8pt !important;
+  }
+}
+.progress-overlay {
+  position:absolute;
+  z-index:9999;
+  bottom:35px;
+  left:0;
+  .progress-container {
+    background: image-url("black-transparent-bg.png");
+    width:90%;
+    margin-left:5%;
+    padding:25px 50px;
+    .progress {
+      height:30px;
+      margin-bottom:0;
+    }
+  }
+}
+.grayscale {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.blur {
+  -webkit-filter: blur(10px); /* Chrome, Opera, etc. */
+  filter: blur(10px);
+}
+.house-media .overlay, .custom-infobox .overlay {
+  position: absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  text-align:center;
+  font-size:24px;
+  padding-top:50px;
+  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+}

@@ -1,0 +1,853 @@
+<div class="banner">
+  <div class="container">
+    <div class="vcenter">
+      <h1>Find a home, <br>simple uncomplicated</h1>
+      <div class="search-box">
+        <div class="search-box-inner">
+          <div class="style1 text-center">FROM THOUSANDS OF REAL ESTATE AGENTS TO THE ONE</div>
+          <div class="line3"></div>
+          <%= form_tag listings_path, method: :get, class: "form-inline", id: "home_detail_fields"  do %>
+            <div class="form-group">
+              <%= hidden_field_tag :listing_type, "Residential", id: "search_listing_type" %>
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="custom_select_btn">
+                  <span class="value">Houses</span> <span class="fa fa-angle-down"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#" class="custom_select" data-target-field="#search_listing_type" data-target-value="Residential" data-target-btn="#custom_select_btn > .value">Houses</a></li>
+                  <li><a href="#" class="custom_select" data-target-field="#search_listing_type" data-target-value="Condo" data-target-btn="#custom_select_btn > .value">Condominiums</a></li>
+                  <li><a href="#" class="custom_select" data-target-field="#search_listing_type" data-target-value="PreConstruction" data-target-btn="#custom_select_btn > .value">Pre Construction</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group">
+              <span class="fa fa-map-marker"></span>
+              <%= text_field_tag :query, params[:query], class: "form-control input-location home-autocomplete-field", "data-details" => "#detail_fields", placeholder: "Enter a city or neighbourhood..." %>
+            </div>
+            <div class="form-group">
+              <%= select_tag "custom_search[min_price]", options_for_select(price_options), include_blank: "Min Price", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= select_tag "custom_search[max_price]", options_for_select(price_options), include_blank: "Max Price", class: "form-control" %>
+            </div>
+            <input name="autocomplete_form" type="hidden" value="true">
+            <input name="route" type="hidden" value="">
+            <input name="locality" type="hidden" value="">
+            <input name="administrative_area_level_1" type="hidden" value="">
+            <button type="submit" class="btn btn-primary btn-search">SEARCH</button>
+          <% end %>
+          <div class="last-location">
+            Last Locations:
+            <%= link_to "Milton", listings_path(city: "Milton") %>,
+            <%= link_to "Halton", listings_path(city: "Halton") %>,
+            <%= link_to "Mississauga", listings_path(city: "Mississauga") %>,
+            <%= link_to "Toronto", listings_path(city: "Toronto") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mask"></div>
+  <a href="#" class="scroll-down"><span class="icon-mouse"></span> <br>SCROLL TO EXPLORE</a>
+  <div class="banner-footer">
+    <div class="row">
+      <div class="col-sm-6">
+        &copy;2015. ZUMIN.CA, ALL RIGTHS RESERVED  // POWERED BY <a href="http://www.variationmedia.com"><%= image_tag "vm-white.png" %></a>
+      </div>
+      <div class="col-sm-6">
+        <ul class="nav-inline">
+          <li><a href="#">PRIVACY POLICY</a></li>
+          <li><a href="#">TERMS OF USE</a></li>
+          <li><a href="#">COOKIES POLICY</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="explore">
+  <div class="container">
+    <div class="text-center">
+      <h2>WITH ZUMIN WE PAY YOU TO BUY WITH US</h2>
+      <div class="row">
+        <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
+          <div class="lead">Zumin offers cash back rewards when purchasing with a Zumin Agent. We offer you cash back or a renovation credit with our affiliate Kitchen and Bath Store. </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="feature-item">
+          <figure>
+            <div class="circle"></div>
+            <span class="feature-01"></span>
+          </figure>
+          <div class="feature-caption">
+            <div class="benefit">$0</div>
+            GET A FREE CONSULTATION  WITH ZUMIN AGENT
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="feature-item">
+          <figure>
+            <div class="circle"></div>
+            <span class="feature-02"></span>
+          </figure>
+          <div class="feature-caption">
+            <div class="benefit">$500,000</div>
+            HOUSE IS LISTED
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="feature-item">
+          <figure>
+            <div class="circle"></div>
+            <span class="feature-03"></span>
+          </figure>
+          <div class="feature-caption">
+            <div class="benefit">$500,000</div>
+            HOUSE SELLS FOR ASKING PRICE
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 last-item">
+        <div class="feature-item">
+          <figure>
+            <div class="circle"></div>
+            <span class="feature-04"></span>
+          </figure>
+          <div class="feature-caption">
+            <div class="benefit">+$1,900</div>
+            CLIENT RECEIVES ADDITIONAL CASH REBATE
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-03">
+    <div class="container">
+      <div class="text-center"><%= image_tag "img-03.png" %></div>
+      <br>
+      <div class="text-center">
+        <h3>WITH ZUMIN WE PAY YOU TO BUY WITH US</h3>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+            <div class="line1"></div>
+            <div>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </div>
+            <br>
+            <p><a href="#" data-target="#calculator" class="btn btn-default slow-scroll">ZUMIN REBATE CALCULATOR</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="text-center">FROM THOUSANDS OF REAL ESTATE AGENTS TO THE ONE</h2>
+    <div class="bt3">
+      <div class="row">
+        <div class="col-sm-8">
+          <ul class="nav nav-pills">
+            <li class="active"><a href="#">Featured Properties</a></li>
+            <li><a href="#">Pre Construction</a></li>
+            <li><a href="#">Houses</a></li>
+            <li><a href="#">Condominiums</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <div class="menu-right">
+            <a href="#">Near Me Properties</a>
+            <div class="divider"></div>
+            <a href="#"><span class="fa fa-arrow-left"></span></a>
+            <a href="#"><span class="fa fa-arrow-right"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="line2"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="property-item">
+          <figure><%= image_tag "img-04.jpg" %></figure>
+          <div class="property-attr">
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="mls">MLS® #9387</div>
+              </div>
+              <div class="col-xs-6">
+                <div class="price"><span>FROM</span> $499,900</div>
+              </div>
+            </div>
+          </div>
+          <div class="property-caption">
+            <h3>MISSISSAUGA</h3>
+            <div class="map map-01">
+              <address>#327 300 <br>Manitoba St.</address>
+              <div>(M8Y 4G9)</div>
+            </div>
+            <div class="row text-center">
+              <div class="col-xs-4">
+                <div class="number">3</div>
+                <div class="text">BEDS</div>
+              </div>
+              <div class="col-xs-4">
+                <div class="number">2</div>
+                <div class="text">BATHS</div>
+              </div>
+              <div class="col-xs-4">
+                <div class="number">987</div>
+                <div class="text">SQ. FT.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="property-item">
+          <figure><%= image_tag "img-05.jpg" %></figure>
+          <div class="property-attr">
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="mls">MLS® #9348823</div>
+              </div>
+              <div class="col-xs-6">
+                <div class="price"><span>FROM</span> $299,900</div>
+              </div>
+            </div>
+          </div>
+          <div class="property-caption">
+            <h3>MILTON</h3>
+            <div class="map map-02">
+              <address>#354 <br>Ashbrook Ct.</address>
+              <div>(L9T 2K7)</div>
+            </div>
+            <div class="row text-center">
+              <div class="col-xs-4">
+                <div class="number">2</div>
+                <div class="text">BEDS</div>
+              </div>
+              <div class="col-xs-4">
+                <div class="number">2</div>
+                <div class="text">BATHS</div>
+              </div>
+              <div class="col-xs-4">
+                <div class="number">526</div>
+                <div class="text">SQ. FT.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="property-item">
+          <figure><%= image_tag "img-06.jpg" %></figure>
+          <div class="property-attr">
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="mls">MLS® #9348823</div>
+              </div>
+              <div class="col-xs-6">
+                <div class="price"><span>FROM</span> $299,900</div>
+              </div>
+            </div>
+          </div>
+          <div class="property-caption">
+            <h3>MILTON</h3>
+            <div class="map map-02">
+              <address>#354 <br>Ashbrook Ct.</address>
+              <div>(L9T 2K7)</div>
+            </div>
+            <div class="row text-center">
+              <div class="col-xs-4">
+                <div class="number">2</div>
+                <div class="text">BEDS</div>
+              </div>
+              <div class="col-xs-4">
+                <div class="number">2</div>
+                <div class="text">BATHS</div>
+              </div>
+              <div class="col-xs-4">
+                <div class="number">526</div>
+                <div class="text">SQ. FT.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-03">
+    <div class="container">
+      <div class="text-center"><%= image_tag "img-07.png" %></div>
+      <br>
+      <div class="text-center">
+        <h3>ZUMIN’S RENOVATE NOW, PAY LATER</h3>
+        <br>
+        <div class="row">
+          <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
+            <div class="lead">Zumin wants you to receive top dollar for your home so we have created the Renovate Now, Pay Later plan. When you sell with Zumin we enable you to use our verified vendors to renovate your property for sale and pay for it when you close.
+              <div class="fz11 text-it mt10">*subject to approval, please inquire for details</div>
+            </div>
+            <br>
+            <p><a class="btn btn-default btn-w250" href="#">SELLERS AREA</a></p>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="feature-line">
+        <div class="row">
+          <div class="col-20 first-item">
+            <div class="feature-item">
+              <figure>
+                <div class="circle"></div>
+                <span class="icon-02-01"></span>
+              </figure>
+              <div class="feature-caption">
+                <div class="benefit">$500,000</div>
+                HOUSE IS WORTH
+              </div>
+            </div>
+          </div>
+          <div class="col-20">
+            <div class="feature-item">
+              <figure>
+                <div class="circle"></div>
+                <span class="icon-02-02"></span>
+              </figure>
+              <div class="feature-caption">
+                SPEAK WITH ZUMIN AGENT
+              </div>
+            </div>
+          </div>
+          <div class="col-20">
+            <div class="feature-item">
+              <figure>
+                <div class="circle"></div>
+                <span class="icon-02-03"></span>
+              </figure>
+              <div class="feature-caption">
+                RENOVATIONS HAPPEN TO HOUSE
+              </div>
+            </div>
+          </div>
+          <div class="col-20">
+            <div class="feature-item">
+              <figure>
+                <div class="circle"></div>
+                <span class="icon-02-04"></span>
+              </figure>
+              <div class="feature-caption">
+                LIST AND PROMOTE YOUR HOUSE FOR SALE
+              </div>
+            </div>
+          </div>
+          <div class="col-20 last-item">
+            <div class="feature-item">
+              <figure>
+                <div class="circle"></div>
+                <span class="icon-02-05"></span>
+              </figure>
+              <div class="feature-caption">
+                <div class="benefit text-primary">$650,000</div>
+                HOUSE SELLS +30% VALUE
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+          <div class="line1"></div>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="text-center">WHY WORK WITH ZUMIN?</h2><br>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="hiw-item">
+          <div class="circle-number">1</div>
+          <h3>LOREM IPSUM DOLOR SIT AMET, CONSECTETUER ADIPISCIN</h3>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="hiw-item">
+          <div class="circle-number">2</div>
+          <h3>LOREM IPSUM DOLOR SIT AMET, CONSECTETUER ADIPISCIN</h3>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="hiw-item">
+          <div class="circle-number">3</div>
+          <h3>LOREM IPSUM DOLOR SIT AMET, CONSECTETUER ADIPISCIN</h3>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+</section>
+
+<section class="bg-01" id="calculator">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+        <div class="calculate-box">
+          <div class="calculate-box-inner">
+            <div class="calculate-box-header">
+              <h3>CALCULATE YOUR REBATE</h3>
+            </div>
+            <div class="calculate-box-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group location-icon">
+                    <span class="fa fa-map-marker"></span>
+                    <select class="form-control">
+                      <option>Location</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option>Property Type</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-9">
+                  <div class="form-group">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-block no-side-padding">CALCULATE</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="calculate-box-footer">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="total-label">TOTAL REBATE*</div>
+                </div>
+                <div class="col-sm-6 text-primary text-right-center">
+                  <div class="total-rebate">$2,062</div>
+                  <div class="fz11">How is the rebate calculated?</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="container">
+    <div id="carousel-testimonial" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-testimonial" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-testimonial" data-slide-to="1"></li>
+        <li data-target="#carousel-testimonial" data-slide-to="2"></li>
+      </ol>
+
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <div class="media testi-item">
+            <div class="media-left"><%= image_tag "img-08.jpg" %></div>
+            <div class="media-body">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. zril delenit augue duis dolore te feugait nulla facilisi.
+              <div class="testi-by">-- Happy Sellers, Ethan and Brook</div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="media testi-item">
+            <div class="media-left"><%= image_tag "img-08.jpg" %></div>
+            <div class="media-body">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. zril delenit augue duis dolore te feugait nulla facilisi.
+              <div class="testi-by">-- Happy Sellers, Ethan and Brook</div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="media testi-item">
+            <div class="media-left"><%= image_tag "img-08.jpg" %></div>
+            <div class="media-body">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. zril delenit augue duis dolore te feugait nulla facilisi.
+              <div class="testi-by">-- Happy Sellers, Ethan and Brook</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="left carousel-control" href="#carousel-testimonial" role="button" data-slide="prev">
+        <span class="left-arrow"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-testimonial" role="button" data-slide="next">
+        <span class="right-arrow"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="bg-02">
+  <div class="container">
+    <h2 class="text-center">FROM THOUSANDS OF REAL ESTATE AGENTS TO THE ONE</h2>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="subscribe">
+          <div class="subscribe-inner" ng-controller="ListingsCtrl">
+            <center id="create_lead_spinner" class="hide"><i class="fa fa-spinner fa-spin fa-3x"></i></center>
+            <div class="alert alert-success hide" id="create_lead_success">
+              Thank you for your interest!
+            </div>
+            <div class="alert alert-danger hide" id="create_lead_error">
+              Something went wrong. Please reload the page and try again.
+            </div>
+            <form name="lead_form" novalidate ng-submit="lead_form.$valid && submit_new_lead_form()" id="create_lead_form">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group" ng-class="{ 'has-error': request_submitted && lead_form.first_name.$invalid }">
+                    <input name="first_name" ng-model="lead.first_name" type="text" class="form-control" placeholder="First Name" required ng-init="lead.first_name='<%= current_user.try(:first_name) %>'">
+                    <span ng-show="request_submitted && lead_form.first_name.$invalid">can't be blank</span>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group" ng-class="{ 'has-error': request_submitted && lead_form.last_name.$invalid }">
+                    <input name="last_name" ng-model="lead.last_name" type="text" class="form-control" placeholder="Last Name" required ng-init="lead.last_name='<%= current_user.try(:last_name) %>'">
+                    <span ng-show="request_submitted && lead_form.last_name.$invalid">can't be blank</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group" ng-class="{ 'has-error': request_submitted && lead_form.email.$invalid }">
+                    <input name="email" ng-model="lead.email" type="email" class="form-control" placeholder="Email Address" required ng-init="lead.email='<%= current_user.try(:email) %>'">
+                    <span ng-show="request_submitted && lead_form.email.$invalid">invalid email address</span>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input ng-model="lead.phone_number" type="text" class="form-control" placeholder="Phone Number" ng-init="lead.phone_number='<%= current_user.try(:phone_number) %>'">
+                  </div>
+                </div>
+              </div>
+              <div class="line3"></div>
+              <div class="row">
+                <div class="col-sm-2">
+                  <label class="aslabel">Are you?</label>
+                </div>
+                <div class="col-sm-7">
+                  <div class="btn-group radio_buttons" ng-init="lead.lead_is='Bying'">
+                    <input type="text" ng-model="lead.lead_is" id="lead_is" class="hide">
+                    <a href="#" class="btn btn-primary radio_buttons_item active" data-target="#lead_is" data-value="Buying">BUYING</a>
+                    <a href="#" class="btn btn-primary radio_buttons_item" data-target="#lead_is" data-value="Selling">SELLING</a>
+                    <a href="#" class="btn btn-primary radio_buttons_item" data-target="#lead_is" data-value="Both">BOTH</a>
+                  </div>
+                </div>
+                <div class="col-md-2 col-md-offset-1 col-sm-3">
+                  <input type="submit" class="btn btn-primary btn-block" ng-click="request_submitted = true;" value="SUBMIT"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<% if false %>
+        <div class="bar bar-orange">
+        	<div class="container-fluid">
+            <%= form_tag listings_path, method: :get, class: "form-inline form-search" do %>
+            	<label class="hidden-sm"><span class="fa fa-search"></span> &nbsp;Find Homes, Condos &amp; Townhouses</label>
+              <label class="visible-sm"><span class="fa fa-search"></span></label>
+              <div class="form-group">
+                <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Enter a city or neighbourhood..." %>
+              </div>
+            	<div class="form-group">
+              	<div class="btn-group bootstrap-select form-control" style="width: 150px;">
+                  <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                    <span class="filter-option pull-left">Price Range</span>&nbsp;
+                    <span class="caret"></span>
+                  </button>
+                  <div class="dropdown-menu price-range-menu">
+                    <ul id="min_price_list pull-left">
+                      <span class="bold-text">Min Price</span>
+                      <%= text_field_tag "custom_search[min_price]", "", placeholder: "Min", id: "min_price_input" %>
+                      <% price_options.each do |po| %>
+                        <li class="min_price_list_item" data-price-value="<%= po[1] %>"><%= po[0] %></li>
+                      <% end %>
+                    </ul>
+                    <ul id="max_price_list">
+                      <span class="bold-text">Max Price</span>
+                      <%= text_field_tag "custom_search[max_price]", "", placeholder: "Max", id: "max_price_input" %>
+                      <% price_options.each do |po| %>
+                        <li class="max_price_list_item" data-price-value="<%= po[1] %>"><%= po[0] %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+            	</div>
+            	<div class="form-group">
+                <%= select_tag 'custom_search[search_beds]', options_for_select(beds_options), class: "form-control selectpicker100", id: "search_beds_select" %>
+            	</div>
+            	<div class="form-group">
+              	<%= select_tag 'custom_search[search_bath]', options_for_select(baths_options), class: "form-control selectpicker100", id: "search_baths_select" %>
+            	</div>
+              <%= submit_tag "SEARCH", class: "btn btn-default" %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="tagline">
+        	<h2>How we help you zumin to a neighbourhood near you?</h2>
+        </div>
+
+        <div class="section1">
+        	<div class="container">
+            	<div class="row">
+                	<div class="col-md-3">
+                    	<div class="mh100"><a href="#" class="search-circle"><%= image_tag "icon-serach.png" %></a></div>
+                    </div>
+                    <div class="col-md-9">
+                    	<div class="row">
+                        	<div class="col-sm-6">
+                            	<p class="style2">Lorem ipsum dolor sit amet, consectetuer adip?</p>
+                                <br>
+                                <div class="mt10"><%= image_tag "logo-text.png"%></div>
+                                <p class="style3">zoom (in)</p>
+                            </div>
+                        	<div class="col-sm-6">
+                            	<p class="style4">Lorem ipsum dolor sit amet, consectetuer adip?</p>
+                                <div class="media media-style">
+                                	<div class="media-left"><span class="icon-location-grey">1</span></div>
+                                    <div class="media-body">
+                                    	Lorem ipsum dolor sit amet, consectetuer adip isc ng elit, sed diam nonummy nibh.
+                                    </div>
+                                </div>
+                                <div class="media media-style">
+                                	<div class="media-left"><span class="icon-location-grey">2</span></div>
+                                    <div class="media-body">
+                                    	Euismod tincidunt ut laoreet dolore magna aliq uam erat volutpat. Ut wisi enim ad minim.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section2">
+        	<div class="container">
+            	<div class="row">
+                	<div class="col-md-3">
+
+                    </div>
+                    <div class="col-md-9">
+                    	<div class="row">
+                        	<div class="col-sm-6">
+                            	<p class="style5">action</p>
+                                <div class="quote">
+                                    <p class="style6">the way in wich word is pronunced.</p>
+
+                                    <p>“spelling does not determine pronunciation”
+                                    synonyms: accent, manner of speacking, speech.</p>
+                                </div>
+                            	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                            </div>
+                        	<div class="col-sm-6">
+                            	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  	</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut .</p>
+                                <br>
+                                <p><a href="#" class="btn btn-danger">MORE INFORMATION</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section3">
+        	<div class="container">
+            	<h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolor</h3>
+                <div class="row">
+                	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tagline">
+        	<h2>How we help you zumin to a neighbourhood near you?</h2>
+        </div>
+
+        <br><br>
+
+        <div class="container">
+        	<div class="row">
+            	<div class="col-md-10 col-md-offset-1">
+                	<div class="row">
+                    	<div class="col-sm-4">
+                        	<div class="item1">
+                            	<figure><%= image_tag "img-02.jpg"%></figure>
+                                <h4>Lorem ipsum dolor sit amet</h4>
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                        	<div class="item1">
+                            	<figure><%= image_tag "img-02.jpg"%></figure>
+                                <h4>Lorem ipsum dolor sit amet</h4>
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                        	<div class="item1">
+                            	<figure><%= image_tag "img-02.jpg"%></figure>
+                                <h4>Lorem ipsum dolor sit amet</h4>
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="row">
+            	<div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+                	<p><a href="#" class="btn btn-danger btn-block">MORE INFORMATION</a></p>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <div class="section4">
+        	<div class="container">
+            	<h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolor</h3>
+                <div class="row">
+                	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section5">
+        	<div class="container">
+            	<div class="house-list">
+                    <div id="owl-house" class="owl-carousel owl-theme">
+                        <% Residential.last(8).each do |listing| %>
+                          <div class="house-item">
+                              <figure><%= image_tag listing.listing_images.try(:first).try(:image_src),  onerror: "this.onerror=null;this.src='/missing-image.png';" %></figure>
+                              <div class="house-caption">
+                                  <div class="box-header">
+                                      <h4><%= listing.full_address %></h4>
+                                  </div>
+                                  <div class="box-body">
+                                      <table class="table table-house">
+                                      <tbody>
+                                          <tr>
+                                              <th>Price</th>
+                                              <td>$<%= listing.price %></td>
+                                          </tr>
+                                          <tr>
+                                              <th>Built by</th>
+                                              <td><span class="style1">Aspen Ridge Homes Ltd.</span></td>
+                                          </tr>
+                                          <tr>
+                                              <th>Located at</th>
+                                              <td><%= listing.city %> <br><%= listing.address %></td>
+                                          </tr>
+                                          <tr>
+                                              <th>MLS®</th>
+                                              <td><%= listing.mls %></td>
+                                          </tr>
+                                          <tr>
+                                              <th>Prop. Type</th>
+                                              <td><%= listing.type %></td>
+                                          </tr>
+                                      </tbody>
+                                      </table>
+                                  </div>
+                                  <div class="box-footer">
+                                      <%= link_to "MORE INFORMATION", listing_path(listing), class: "btn btn-danger btn-block btn-sm", target: "_self" %>
+                                  </div>
+                              </div>
+                          </div>
+                        <% end %>
+                    </div>
+                    <a href="#" class="customPrevBtn hidden-xs hidden-sm"><span class="fa fa-chevron-left"></span></a>
+                    <a href="#" class="customNextBtn hidden-xs hidden-sm"><span class="fa fa-chevron-right"></span></a>
+                </div>
+            	<div class="row">
+                	<div class="col-sm-6 col-sm-offset-3">
+                      <%= link_to "VIEW ALL (#{Residential.count})", listings_path, class: "btn btn-primary btn-block", target: "_self" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <script>
+              $(function(){
+
+  				var owl = $("#owl-house");
+  				owl.owlCarousel({
+  					autoplay : true,
+  					loop: true,
+  					margin: 20,
+  					responsive:{
+  						0:{
+  							items:1,
+  							nav: false
+  						},
+  						480:{
+  							items:2,
+  							nav: false
+  						},
+  						640:{
+  							items:3,
+  							nav: false
+  						},
+  						768:{
+  							items:2,
+  							nav: false
+  						},
+  						991:{
+  							items:3,
+  							nav: false
+  						},
+  						1200:{
+  							items:4,
+  							nav: false
+  						}
+  					}
+  				});
+  				$('.customNextBtn').click(function(e) {
+  					owl.trigger('next.owl.carousel');
+  					e.preventDefault();
+  				})
+  				$('.customPrevBtn').click(function(e) {
+  					owl.trigger('prev.owl.carousel');
+  					e.preventDefault();
+  				})
+              });
+          </script>
+
+<% end %>

@@ -1,0 +1,180 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><%= image_tag "logo.png" %></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav hidden-sm">
+        <li><a href="#">Buyers Area</a></li>
+        <li><a href="#">Sellers Area</a></li>
+        <li><a href="#">Agents</a></li>
+        <li><a href="#">Mortgages</a></li>
+        <li><a href="#">Market Updates</a></li>
+      </ul>
+      <%= form_tag listings_path, method: :get, class: "navbar-form navbar-left", id: "navbar_detail_fields" do %>
+        <div class="form-group">
+          <span class="fa fa-search"></span>
+          <%= text_field_tag :query, params[:query], class: "form-control navbar-autocomplete-field", placeholder: "Search Properties" %>
+        </div>
+        <input name="autocomplete_form" type="hidden" value="true">
+        <input name="route" type="hidden" value="">
+        <input name="locality" type="hidden" value="">
+        <input name="administrative_area_level_1" type="hidden" value="">
+        <a href="#modal-advanced-search" class="navbar-link" data-toggle="modal">+ Advance Search</a>
+      <% end %>
+      <div class="navbar-right">
+        <% if user_signed_in? %>
+          &nbsp;<%= link_to "My Account", my_account_path %> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>&nbsp;
+        <% else %>
+          <a href="#modal-login" data-toggle="modal" class="btn btn-primary navbar-btn">SIGN UP / LOG IN</a>
+          <%#= link_to('SIGN UP / LOG IN', new_user_session_path, class: "btn btn-primary navbar-btn")  %>
+        <% end %>
+        <a href="#" class="menu-toggle hidden-xs">
+          <div class="hamburger">
+            <span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div><!-- /.container -->
+</nav>
+
+<div class="nav-menu">
+  <div id="menu-scroll" class="nano">
+    <div class="nano-content">
+      <ul class="nav">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">SEARCH HOMES</a></li>
+        <li><a href="#">FIND AGENTS</a></li>
+        <li><a href="#">REBATE PROGRAM</a></li>
+        <li>
+          <a href="#" class="text-primary">FOR BUYERS</a>
+          <ul class="nav">
+            <li><a href="#">HOME FOR SALE</a></li>
+            <li><a href="#">HOME BUYERS GUIDE</a></li>
+            <li><a href="#">FIND LOWEST MORTGAGE RATES</a></li>
+            <li><a href="#">NEW PROPERTY ALERTS</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="text-primary">FOR SELLERS</a>
+          <ul class="nav">
+            <li><a href="#">QUICK HOME ESTIMATE</a></li>
+            <li><a href="#">FREE INDEPTH HOME ANALYS</a></li>
+            <li><a href="#">HOME SELLERS GUIDE</a></li>
+            <li><a href="#">GET SOLD INFORMATION</a></li>
+          </ul>
+        </li>
+        <li><a href="#">SIGN IN</a></li>
+        <li><a href="#">POPULAR CITIES</a></li>
+        <li class="assub"><a href="#">ADVERTISE WITH US</a></li>
+        <li class="assub"><a href="#">TERMS OF USE</a></li>
+        <li class="assub"><a href="#">CONTACT US</a></li>
+        <li class="assub"><a href="#">BLOG</a></li>
+      </ul>
+      <div class="share">
+        <%= image_tag "share.png" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if false %>
+<nav class="navbar navbar-inverse navbar-static-top">
+  	<div class="container-fluid">
+    	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+      		</button>
+      		<a class="navbar-brand" href="/" target="_self"><%= image_tag "logo.png" %></a>
+    	</div>
+
+    	<div class="collapse navbar-collapse">
+      		<ul class="nav navbar-nav">
+        		<li class="active"><a href="#">Buyers Area</a></li>
+        		<li><a href="#">Sellers Area</a></li>
+        		<li><a href="#">Mortgages</a></li>
+        		<li><a href="#">Agents</a></li>
+      		</ul>
+            <div class="navbar-right">
+                <%= form_tag listings_path, method: :get, class: "navbar-form navbar-left navbar-search hidden-sm" do %>
+                  <div class="form-group">
+                    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search" %>
+                    <span class="fa fa-search"></span>
+                  </div>
+                <% end %>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse <span class="fa fa-angle-down"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-left" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Help &amp; Support</a></li>
+                    <% if user_signed_in? %>
+                      <li><%= link_to "My Account", my_account_path %></li>
+                      <li>
+                        <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
+                      </li>
+                    <% else %>
+                      <li>
+                        <%= link_to('Login', new_user_session_path)  %>
+                      </li>
+                    <% end %>
+                </ul>
+                <% unless user_signed_in? %>
+                  <%= link_to('NEW MEMBERS', new_user_registration_path, class: "btn btn-danger navbar-btn")  %>
+                <% end %>
+            </div>
+    	</div><!-- /.navbar-collapse -->
+  	</div><!-- /.container-fluid -->
+</nav>
+
+<% homepage = params[:action] == "index" && params[:controller] == "home" %>
+<% unless homepage %>
+  <div class="header-bar bb1">
+  	<div class="container">
+      	<div class="row">
+          	<div class="col-sm-9">
+              <% if false %>
+                  <button class="btn btn-default"><span class="fa fa-chevron-left"></span></button>
+              <% end %>
+                  <h2><%= @page_title || "Zumin" %></h2>
+              </div>
+              <div class="col-sm-3">
+              	<a href="#" class="contact-phone"><span class="icon-phone"></span> 234 568 8910</a>
+                  <a href="#" class="contact-chat"><span class="icon-message"></span> Chat with an Agent</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <% if logged_in? %>
+    <nav class="navbar navbar-default no-bottom-margin">
+    	<div class="container">
+        	<ul class="nav navbar-nav">
+          	<li class="<% if params[:action] == 'my_profile' %>active<% end %>"><%= link_to "My Profile", my_account_path, target: "_self" %></li>
+          	<li class="<% if params[:controller] == 'favourites' && params[:action] == 'index' %>active<% end %>"><%= link_to "My Favourites", favourites_path, target: "_self" %></li>
+              <li><a href="#">New Listing Alert</a></li>
+              <li class="<% if params[:controller] == 'devise/registrations' && params[:action] == 'edit' %>active<% end %>"><%= link_to "Change Password", edit_user_registration_path %></li>
+              <li class="<% if params[:controller] == 'users' && params[:action] == 'subscriptions' %>active<% end %>"><%= link_to "Subscriptions", subscriptions_path %></li>
+              <li class="<% if params[:controller] == 'users' && params[:action] == 'terms' %>active<% end %>"><%= link_to "Terms of Use", terms_path %></li>
+              <li><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
+        	</ul>
+    	</div>
+    </nav>
+  <% end %>
+<% end %>
+<% end %>

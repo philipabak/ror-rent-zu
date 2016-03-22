@@ -1,0 +1,44 @@
+<br>
+<div class="container" ng-controller="ListingsCtrl" ng-init="load_favourites()">
+ <div class="row" ng-repeat="group in listings">
+ 	<div class="col-md-3 col-sm-6" ng-repeat="listing in group">
+         <div class="house-item">
+             <figure><img ng-src="{{listing.images[0]}}" onerror="this.onerror=null;this.src='/missing-image.png';"></figure>
+             <div class="house-caption">
+                 <div class="box-header">
+                     <h4>{{ listing.full_address }}</h4>
+                 </div>
+                 <div class="box-body">
+                     <table class="table table-house">
+                     <tbody>
+                         <tr>
+                             <th>Price</th>
+                             <td>${{listing.price}}</td>
+                         </tr>
+                         <tr>
+                             <th>Built by</th>
+                             <td><span class="style1">Aspen Ridge Homes Ltd.</span></td>
+                         </tr>
+                         <tr>
+                             <th>Located at</th>
+                             <td>{{listing.city}} <br>{{listing.address}}</td>
+                         </tr>
+                         <tr>
+                             <th>MLS®</th>
+                             <td>{{listing.mls}}</td>
+                         </tr>
+                         <tr>
+                             <th>Prop. Type</th>
+                             <td>{{listing.type}}</td>
+                         </tr>
+                     </tbody>
+                     </table>
+                 </div>
+                 <div class="box-footer">
+                     <a href="/listings/{{listing.id}}" target="_self" class="btn btn-danger btn-block btn-sm">MORE INFORMATION</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
