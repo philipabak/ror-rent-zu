@@ -57,7 +57,7 @@ gem 'omniauth-facebook'
 gem "paperclip", "~> 4.2"
 gem 'omniauth-google-oauth2'
 gem 'bootstrap-select-rails'
-gem 'yajl-ruby', require: 'yajl'
+gem 'yajl-ruby', "~> 1.3.1"
 gem "haml-rails", "~> 0.9"
 gem 'faraday'
 
