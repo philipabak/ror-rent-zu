@@ -428,4 +428,4 @@ DEPENDENCIES
   web-console (~> 2.0)
   whenever
   will_paginate
-  yajl-ruby
+  yajl-ruby (~> 1.3.1)
